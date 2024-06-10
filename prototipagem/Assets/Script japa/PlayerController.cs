@@ -34,23 +34,17 @@ public class PlayerController : MonoBehaviour
         inputs = new Inputs();
 
         inputs.Player.Pular.performed += ctx => Jump();
-        inputs.Player.Pular.canceled += ctx => jumping = true;
+        inputs.Player.Pular.canceled += ctx => jumping = false;
         inputs.Player.Andar.performed += ctx => direction = ctx.ReadValue<Vector2>();
 
 
     }
-    private void UpdateAnimation()
-    {
-        animator.SetBool("Running", rb.velocity.x != 0);
-        animator.SetBool("Falling", rb.velocity.y < 0 && !playerCollider.OnGround);
-        animator.SetBool("Jumping", jumping);
-    }
-
+    
     private void Update()
     {
         SetGravity();
         Movement();
-        UpdateAnimation();
+        
     }
 
     private void Movement()
@@ -58,7 +52,7 @@ public class PlayerController : MonoBehaviour
         if (!dashing)
         {
             rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
-        }
+        } 
 
         render.flipX = rb.velocity.x < 0;
     }
