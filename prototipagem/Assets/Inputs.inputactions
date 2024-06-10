@@ -1,8 +1,8 @@
 {
-    "name": "New Controls",
+    "name": "Inputs",
     "maps": [
         {
-            "name": "New action map",
+            "name": "Player",
             "id": "1724492c-ea72-40d4-af0d-d85d9d7f36f7",
             "actions": [
                 {
@@ -16,7 +16,7 @@
                 },
                 {
                     "name": "Andar",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "dc023300-312e-4ca3-b89f-d02963be70c8",
                     "expectedControlType": "Vector2",
                     "processors": "",

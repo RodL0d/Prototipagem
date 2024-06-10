@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     PlayerCollider playerCollider;
     Animator animator;
 
-    //Inputs inputs;
+    Inputs inputs;
 
     private void Awake()
     {
@@ -31,13 +31,13 @@ public class PlayerController : MonoBehaviour
         playerCollider = GetComponent<PlayerCollider>();
         animator = GetComponent<Animator>();
 
-        //inputs = new Inputs();
+        inputs = new Inputs();
 
-        //inputs.Player.Jump.performed += ctx => Jump();
-        //inputs.Player.Jump.canceled += ctx => jumping = false;
-       // inputs.Player.Move.performed += ctx => direction = ctx.ReadValue<Vector2>();
-       // inputs.Player.Dash.performed += ctx => StartCoroutine(Dash());
-        //inputs.Player.Fire.performed += ctx => Shoot();
+        inputs.Player.Pular.performed += ctx => Jump();
+        inputs.Player.Pular.canceled += ctx => jumping = true;
+        inputs.Player.Andar.performed += ctx => direction = ctx.ReadValue<Vector2>();
+
+
     }
     private void UpdateAnimation()
     {
@@ -110,11 +110,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-       // inputs.Enable();
+       inputs.Enable();
     }
 
     private void OnDisable()
     {
-        //inputs.Disable();
+        inputs.Disable();
     }
 }
