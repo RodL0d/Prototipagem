@@ -17,7 +17,7 @@ public class EnergiaVital : MonoBehaviour
     void Update()
     {
         tempodevida = tempodevida + Time.deltaTime;
-        //Debug.Log(tempodevida);
+        Debug.Log(tempodevida);
         Morte();
     }
     void Morte()
