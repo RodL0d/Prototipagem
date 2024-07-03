@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class EnergiaVital : MonoBehaviour
 {
-    [SerializeField] float tempodevida;
+     float vida;
+    [SerializeField] int vidaMax ;
+
 
     void Start()
     {
@@ -16,13 +18,13 @@ public class EnergiaVital : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tempodevida = tempodevida + Time.deltaTime;
-        Debug.Log(tempodevida);
+        vida = vida + Time.deltaTime;
+        Debug.Log(vida);
         Morte();
     }
     void Morte()
     {
-        if (tempodevida > 10)
+        if (vida > vidaMax)
         {
             reloadScenes();
         }
