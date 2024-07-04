@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
         inputs.Player.Pular.canceled += ctx => jumping = false;
         inputs.Player.Andar.performed += ctx => direction = ctx.ReadValue<Vector2>();
 
-
+        int tipodecaixa;
     }
     
     private void Update()
@@ -68,6 +69,14 @@ public class PlayerController : MonoBehaviour
             rb.velocity += Vector2.up * Physics2D.gravity * lowJumpMultiplier * Time.deltaTime;
         }
     }
+
+
+    void OuvidoBio()
+    {
+
+    }
+
+
 
     private void Jump()
     {
