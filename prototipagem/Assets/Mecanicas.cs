@@ -6,27 +6,39 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class Mecanicas : MonoBehaviour
 {
     [SerializeField]LayerMask objetoInvisivel;
-    float cooldown;
+    float cooldown =5;
 
     void Start()
     {
-        StartCoroutine(Olhobionico());
-        
+        Camera.main.GetComponent<Camera>().cullingMask = (1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        cooldown = cooldown - Time.deltaTime;
+        if (cooldown > 0)
+        {
+            cooldown = cooldown - Time.deltaTime;
+            Debug.Log(cooldown);
+        }
+
+        if (Input.GetKeyDown(KeyCode.L) && cooldown <= 0)
+        {
+
+            StartCoroutine( Olhobionico());
+
+        }
+        
     }
     IEnumerator Olhobionico() 
     {
-        if (Input.GetKeyDown(KeyCode.L) && cooldown <= 0)
-        {
-            Camera.main.GetComponent<Camera>().cullingMask = (1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6);
-            
-            Camera.main.GetComponent<Camera>().cullingMask = (1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5);
-        }
-        
+        Camera.main.GetComponent<Camera>().cullingMask = (1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5) | (1 << 6);
+        yield return new WaitForSeconds(5);
+        Camera.main.GetComponent<Camera>().cullingMask = (1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5);
+        cooldown = 5;
+
+
+
     }
 }

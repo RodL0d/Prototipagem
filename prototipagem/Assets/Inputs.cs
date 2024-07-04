@@ -53,6 +53,15 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Olhoinvisivel"",
+                    ""type"": ""Button"",
+                    ""id"": ""49b483ff-eca4-49d6-83f2-7294b0bd58cb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""action"": ""Empurrar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""62608ba0-d980-43d0-be74-f27212695226"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Olhoinvisivel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +163,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_Player_Pular = m_Player.FindAction("Pular", throwIfNotFound: true);
         m_Player_Andar = m_Player.FindAction("Andar", throwIfNotFound: true);
         m_Player_Empurrar = m_Player.FindAction("Empurrar", throwIfNotFound: true);
+        m_Player_Olhoinvisivel = m_Player.FindAction("Olhoinvisivel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +228,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Pular;
     private readonly InputAction m_Player_Andar;
     private readonly InputAction m_Player_Empurrar;
+    private readonly InputAction m_Player_Olhoinvisivel;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
@@ -214,6 +236,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         public InputAction @Pular => m_Wrapper.m_Player_Pular;
         public InputAction @Andar => m_Wrapper.m_Player_Andar;
         public InputAction @Empurrar => m_Wrapper.m_Player_Empurrar;
+        public InputAction @Olhoinvisivel => m_Wrapper.m_Player_Olhoinvisivel;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +255,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Empurrar.started += instance.OnEmpurrar;
             @Empurrar.performed += instance.OnEmpurrar;
             @Empurrar.canceled += instance.OnEmpurrar;
+            @Olhoinvisivel.started += instance.OnOlhoinvisivel;
+            @Olhoinvisivel.performed += instance.OnOlhoinvisivel;
+            @Olhoinvisivel.canceled += instance.OnOlhoinvisivel;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -245,6 +271,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Empurrar.started -= instance.OnEmpurrar;
             @Empurrar.performed -= instance.OnEmpurrar;
             @Empurrar.canceled -= instance.OnEmpurrar;
+            @Olhoinvisivel.started -= instance.OnOlhoinvisivel;
+            @Olhoinvisivel.performed -= instance.OnOlhoinvisivel;
+            @Olhoinvisivel.canceled -= instance.OnOlhoinvisivel;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -267,5 +296,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         void OnPular(InputAction.CallbackContext context);
         void OnAndar(InputAction.CallbackContext context);
         void OnEmpurrar(InputAction.CallbackContext context);
+        void OnOlhoinvisivel(InputAction.CallbackContext context);
     }
 }
