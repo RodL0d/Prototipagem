@@ -3,12 +3,12 @@
     "maps": [
         {
             "name": "Player",
-            "id": "1724492c-ea72-40d4-af0d-d85d9d7f36f7",
+            "id": "ae6302c8-d64d-46cd-800b-f3aa1ecb27c4",
             "actions": [
                 {
                     "name": "Pular",
                     "type": "Button",
-                    "id": "fd36d12e-bb1a-4223-bbbb-6cb1c20b3f76",
+                    "id": "a67fc990-996e-4820-a13f-d18168aaa02c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -17,16 +17,43 @@
                 {
                     "name": "Andar",
                     "type": "PassThrough",
-                    "id": "dc023300-312e-4ca3-b89f-d02963be70c8",
+                    "id": "cd0c5588-ea11-4da5-86ad-1ba59492e010",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Empurrar",
                     "type": "Button",
-                    "id": "c3838dea-c9b0-42c0-bfbc-f20d30d96cff",
+                    "id": "ba7c1749-f94a-4dc1-a1a0-c300c651fbbe",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Agachar",
+                    "type": "Button",
+                    "id": "801770fe-73e8-4d88-b825-463691ffe414",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "pegar",
+                    "type": "Button",
+                    "id": "c76eaa09-962e-41fa-9c1d-1948ada2e114",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SuperPulo",
+                    "type": "Button",
+                    "id": "cdaf935e-766f-4a29-ba40-8f4fda8f8714",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -36,7 +63,7 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "e6813b9f-7911-455b-92f7-bb7567e1e431",
+                    "id": "990b7dc3-c568-4d40-8d09-47b26c67338a",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
@@ -46,8 +73,30 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "58cdafaa-3777-4dee-90d6-c60fa70aec7d",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Empurrar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a729f2eb-d9b1-42d2-9962-c9ecd1493e87",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Agachar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "2D Vector",
-                    "id": "35db1eea-9a8a-48ca-a97f-de9ef5180fb4",
+                    "id": "cd214fe6-6d0a-4782-aa83-5821fcf5fc5a",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -58,7 +107,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "6d94e6c6-d6d2-4dc5-a149-1157d405303b",
+                    "id": "a2962a19-35af-456c-88d2-f6884f914728",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -69,7 +118,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "63deb28b-b892-4b31-8092-77501e9975d8",
+                    "id": "f56d1ba9-d7f9-470d-b493-14dae41993d5",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -80,7 +129,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "cfaf98af-b5a9-4a6b-8f54-a7a0a8e986cb",
+                    "id": "b7ef6f08-42d7-4354-8b2d-ceec08557afe",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
@@ -91,7 +140,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "8f819d18-2dc2-42fa-ad92-5aba8da7800d",
+                    "id": "f7ea2bfb-75af-414d-8bcb-e315def7a83b",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
@@ -102,12 +151,23 @@
                 },
                 {
                     "name": "",
-                    "id": "6a4c95cd-be63-43b6-b74b-f8cbcea6c04c",
-                    "path": "",
+                    "id": "e558831a-ac4e-45e5-81ca-6e0c30b1782d",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Empurrar",
+                    "action": "pegar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b25387ec-6ec1-410c-9f77-60ff78e1b6c4",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SuperPulo",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
