@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -13,7 +15,7 @@ public class PlayerController : MonoBehaviour
     const float jumpForce = 10;
     const float dashForce = 10;
 
-    bool jumping, dashing;
+    bool jumping, dashing, agachar;
     Vector2 direction;
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform firePoint;
@@ -21,8 +23,10 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     PlayerCollider playerCollider;
     Animator animator;
-
-    //Inputs inputs;
+    float contSuperJump;
+    Inputs inputs;
+    bool superJumpAcert;
+    int printContSuperJump;
 
     private void Awake()
     {
@@ -31,26 +35,21 @@ public class PlayerController : MonoBehaviour
         playerCollider = GetComponent<PlayerCollider>();
         animator = GetComponent<Animator>();
 
-        //inputs = new Inputs();
+        inputs = new Inputs();
 
-        //inputs.Player.Jump.performed += ctx => Jump();
-        //inputs.Player.Jump.canceled += ctx => jumping = false;
-       // inputs.Player.Move.performed += ctx => direction = ctx.ReadValue<Vector2>();
-       // inputs.Player.Dash.performed += ctx => StartCoroutine(Dash());
-        //inputs.Player.Fire.performed += ctx => Shoot();
+        inputs.Player.Pular.performed += ctx => Jump();
+        inputs.Player.Pular.canceled += ctx => jumping = false;
+        inputs.Player.Andar.performed += ctx => direction = ctx.ReadValue<Vector2>();
+        inputs.Player.Agachar.performed += ctx => Agachar();
+        inputs.Player.Agachar.canceled += ctx => agachar = false;
+        inputs.Player.SuperPulo.started += ctx => superJumpAcert = true;
+        inputs.Player.SuperPulo.canceled += ctx => superJumpAcert = false;
     }
-    private void UpdateAnimation()
-    {
-        animator.SetBool("Running", rb.velocity.x != 0);
-        animator.SetBool("Falling", rb.velocity.y < 0 && !playerCollider.OnGround);
-        animator.SetBool("Jumping", jumping);
-    }
-
     private void Update()
     {
         SetGravity();
         Movement();
-        UpdateAnimation();
+        SuperJump();
     }
 
     private void Movement()
@@ -74,8 +73,11 @@ public class PlayerController : MonoBehaviour
             rb.velocity += Vector2.up * Physics2D.gravity * lowJumpMultiplier * Time.deltaTime;
         }
     }
-
+    private void Agachar()
+    {
+    }
     private void Jump()
+
     {
         if (playerCollider.OnGround)
         {
@@ -83,7 +85,32 @@ public class PlayerController : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            print("Pulo normal");
         }
+             
+    }
+      private void SuperJump()
+    {
+        if (superJumpAcert)
+        {
+            contSuperJump += Time.deltaTime;
+            printContSuperJump++;
+            print(printContSuperJump);
+            if (contSuperJump >= 2)
+            {
+                float newJumpForce;
+                newJumpForce = jumpForce + 2;
+
+                jumping = true;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+                rb.velocity = new Vector2(rb.velocity.x, newJumpForce);
+                print("Super pulo");
+                contSuperJump = 0;
+                printContSuperJump = 0;
+            }
+        }
+        
     }
 
     private IEnumerator Dash()
@@ -102,7 +129,6 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
     private void Shoot()
     {
         Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
@@ -110,11 +136,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-       // inputs.Enable();
+        inputs.Enable();
+        
     }
 
     private void OnDisable()
     {
-        //inputs.Disable();
+        inputs.Disable();
     }
 }
