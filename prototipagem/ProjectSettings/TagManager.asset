@@ -8,6 +8,8 @@ TagManager:
   - Caixa_vitoria
   - chave
   - botao
+  - Sons
+  - Encaixe
   layers:
   - Default
   - TransparentFX
