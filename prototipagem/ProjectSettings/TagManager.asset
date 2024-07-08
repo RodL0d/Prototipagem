@@ -5,11 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Caixa
+  - Caixa_vitoria
+  - chave
+  - botao
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - 
   - Water
   - UI
   - 

@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -86,8 +87,9 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             print("Pulo normal");
         }
+             
     }
-    private void SuperJump()
+      private void SuperJump()
     {
         if (superJumpAcert)
         {
@@ -108,6 +110,7 @@ public class PlayerController : MonoBehaviour
                 printContSuperJump = 0;
             }
         }
+        
     }
 
     private IEnumerator Dash()
@@ -134,10 +137,11 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         inputs.Enable();
+        
     }
 
     private void OnDisable()
     {
         inputs.Disable();
     }
-}    
+}
