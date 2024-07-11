@@ -5,7 +5,7 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Mecanicas : MonoBehaviour
 {
-    [SerializeField]LayerMask objetoInvisivel;
+    [SerializeField]LayerMask Objetoinvisivel;
     float cooldown =5;
 
     void Start()
@@ -23,7 +23,7 @@ public class Mecanicas : MonoBehaviour
             Debug.Log(cooldown);
         }
 
-        if (Input.GetKeyDown(KeyCode.L) && cooldown <= 0)
+        if (Input.GetKeyDown(KeyCode.K) && cooldown <= 0)
         {
 
             StartCoroutine( Olhobionico());
