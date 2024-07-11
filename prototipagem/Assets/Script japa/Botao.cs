@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class Botao : MonoBehaviour
 {
-    private Animator anim;
+    //private Animator anim;
     public bool pisou;
+    chave chave;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,10 +30,11 @@ public class Botao : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Caixa")
-        {
-            //anim.SetBool("Botao", false);
-            pisou = false;
-        }
+        //if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Caixa")
+        //{
+        //anim.SetBool("Botao", false);
+        pisou = false;
+        // }
     }
+
 }
