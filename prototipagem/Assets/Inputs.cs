@@ -62,6 +62,15 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Esticar Braço"",
+                    ""type"": ""Button"",
+                    ""id"": ""f1afc097-4fc8-4626-88fb-76ceed938ade"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""action"": ""Puxar "",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3ea2f7a2-108e-4137-b733-b9ca842cfc1b"",
+                    ""path"": ""<Keyboard>/#(J)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Esticar Braço"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +184,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_Player_Andar = m_Player.FindAction("Andar", throwIfNotFound: true);
         m_Player_Empurrar = m_Player.FindAction("Empurrar", throwIfNotFound: true);
         m_Player_Puxar = m_Player.FindAction("Puxar ", throwIfNotFound: true);
+        m_Player_EsticarBraço = m_Player.FindAction("Esticar Braço", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +250,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Andar;
     private readonly InputAction m_Player_Empurrar;
     private readonly InputAction m_Player_Puxar;
+    private readonly InputAction m_Player_EsticarBraço;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
@@ -237,6 +259,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         public InputAction @Andar => m_Wrapper.m_Player_Andar;
         public InputAction @Empurrar => m_Wrapper.m_Player_Empurrar;
         public InputAction @Puxar => m_Wrapper.m_Player_Puxar;
+        public InputAction @EsticarBraço => m_Wrapper.m_Player_EsticarBraço;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +281,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Puxar.started += instance.OnPuxar;
             @Puxar.performed += instance.OnPuxar;
             @Puxar.canceled += instance.OnPuxar;
+            @EsticarBraço.started += instance.OnEsticarBraço;
+            @EsticarBraço.performed += instance.OnEsticarBraço;
+            @EsticarBraço.canceled += instance.OnEsticarBraço;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -274,6 +300,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Puxar.started -= instance.OnPuxar;
             @Puxar.performed -= instance.OnPuxar;
             @Puxar.canceled -= instance.OnPuxar;
+            @EsticarBraço.started -= instance.OnEsticarBraço;
+            @EsticarBraço.performed -= instance.OnEsticarBraço;
+            @EsticarBraço.canceled -= instance.OnEsticarBraço;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -297,5 +326,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         void OnAndar(InputAction.CallbackContext context);
         void OnEmpurrar(InputAction.CallbackContext context);
         void OnPuxar(InputAction.CallbackContext context);
+        void OnEsticarBraço(InputAction.CallbackContext context);
     }
 }

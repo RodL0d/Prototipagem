@@ -17,14 +17,12 @@ public class PlayerController : MonoBehaviour
     bool jumping;
     Vector2 direction;
 
-    public GameObject armPrefab;
-    public float armReach = 3.0f;
-    public float armDuration = 2.0f;
-
-    private GameObject armInstance;
+    public Transform arm;
+    public float stretchDistance = 3f;
+    public float stretchDuration = 2f;
+    private Vector3 originalPosition;
     private bool isStretching = false;
-    private Vector3 armDirection;
-    private float armTimer = 0f;
+    private Transform targetBox;
 
     SpriteRenderer render;
     Rigidbody2D rb;
@@ -53,6 +51,7 @@ public class PlayerController : MonoBehaviour
         inputs.Player.Pular.canceled += ctx => jumping = false;
         inputs.Player.Andar.performed += ctx => direction = ctx.ReadValue<Vector2>();
         inputs.Player.Puxar.performed += ctx => PickBox();
+        inputs.Player.EsticarBraço.performed += ctx => StretchingArm();
 
 
     }
@@ -129,26 +128,53 @@ public class PlayerController : MonoBehaviour
                 
         }
     }
-   
-    void StretcArm()
+
+    void StretchingArm()
     {
-        armDirection = transform.localScale.x > 0 ? Vector3.right : Vector3.left;
+        originalPosition = arm.position;
+        if (Input.GetKeyDown(KeyCode.J) && !isStretching)
+        {
+            StartCoroutine(StretchArm());
+        }
+    }
 
-        armInstance = Instantiate(armPrefab, transform.position, Quaternion.identity);
-        armInstance.transform.parent = transform;
-        armInstance.transform.localScale = new Vector3(armReach, 1, 1);
-
-        armInstance.transform.localPosition = armDirection * armReach / 2;
-
+    IEnumerator StretchArm()
+    {
         isStretching = true;
-        armTimer = 0f;
-    }
+        Vector3 targetPosition = arm.position + arm.right * stretchDistance;
+        float time = 0f;
 
-    void RetractArm()
-    {
-        Destroy(armInstance);
+        // Esticar o braço
+        while (time < 1f)
+        {
+            time += Time.deltaTime * stretchDuration;
+            arm.position = Vector3.Lerp(originalPosition, targetPosition, time);
+            yield return null;
+        }
+
+        // Detectar se há uma caixa próxima
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(arm.position, 0.5f, layerMask);
+        if (colliders.Length > 0)
+        {
+            targetBox = colliders[0].transform;
+            // Mover a caixa para o braço
+            targetBox.position = arm.position;
+        }
+
+        // Voltar o braço para a posição original
+        time = 0f;
+        while (time < 1f)
+        {
+            time += Time.deltaTime * stretchDuration;
+            arm.position = Vector3.Lerp(targetPosition, originalPosition, time);
+            if (targetBox)
+            {
+                targetBox.position = arm.position;
+            }
+            yield return null;
+        }
+
         isStretching = false;
+        targetBox = null;
     }
-
-
 }
