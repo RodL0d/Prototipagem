@@ -6,8 +6,8 @@ using UnityEngine.UIElements;
 
 public class Barreira : MonoBehaviour
 {
-    
-
+    TiposDeEncaixe tiposDeEncaixe;
+    sons tiposDeSons;
     public float velocidade;
     [SerializeField]
     Botao botao;
@@ -20,14 +20,14 @@ public class Barreira : MonoBehaviour
     {
         posicaoInicial = transform.position;
     }
-
+    //botao.pisou == true && transform.position.y <= maxposicao + posicaoInicial.y && chave.getChave && 
     // Update is called once per frame
     void Update()
     {
 
 
 
-        if (botao.pisou == true && transform.position.y <= maxposicao + posicaoInicial.y && chave.getChave == true)
+        if (tiposDeSons == tiposDeEncaixe)
         {
             transform.Translate(Vector2.up * Time.deltaTime * velocidade);
 
