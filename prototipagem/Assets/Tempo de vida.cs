@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class EnergiaVital : MonoBehaviour
 {
-     float vida;
-    [SerializeField] int vidaMax ;
+    [SerializeField] float vida ;
+    
 
 
     void Start()
@@ -18,19 +18,19 @@ public class EnergiaVital : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        vida = vida + Time.deltaTime;
-        //Debug.Log(vida);
+        vida -=  Time.deltaTime;
+        Debug.Log(vida);
         Morte();
     }
     void Morte()
     {
-        if (vida > vidaMax)
+        if (vida < 0)
         {
             reloadScenes();
         }
     }
     void reloadScenes()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
