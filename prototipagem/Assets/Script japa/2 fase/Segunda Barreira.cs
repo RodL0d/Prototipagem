@@ -15,22 +15,31 @@ public class SegundaBarreira : MonoBehaviour
         posicaoInicial = transform.position;
        
     }
-    public float delay = 100;
+    public float delay = 10;
     float timer;
     void Update()
     {
-
+       
         if (seguundo_Botao.pisou == true && transform.position.y >= posicaoInicial.y - maxposicaoDonw)
         {
             transform.Translate(Vector2.down * Time.deltaTime * velocidade);
 
             daniel = true;
+            
+            
+        }
+
+
+        if (daniel == true)
+        {
             timer += Time.deltaTime;
-            if (timer > delay)
-            {
-                seguundo_Botao.pisou = false;
-                timer -= delay;
-            }
+        }
+        
+
+        if (timer > delay)
+        {
+            seguundo_Botao.pisou = false;
+            timer -= delay;
         }
 
         if (seguundo_Botao.pisou == false && daniel == true && transform.position.y <= posicaoInicial.y)
