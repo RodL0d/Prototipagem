@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Cubo_Vitoria : MonoBehaviour
 {
     public bool encostou;
+    [SerializeField] string proximaCena;
 
     void Start()
     {
@@ -25,17 +26,17 @@ public class Cubo_Vitoria : MonoBehaviour
 
             encostou = true;
             print("GANHOU!!!!");
-            reloadScene();
+            LoadScene(proximaCena);
 
         }
     }
 
 
 
-    void reloadScene()
+    void LoadScene(string sceneName)
 
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene(sceneName);
     }
 
 }
