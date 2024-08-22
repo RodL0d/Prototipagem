@@ -123,6 +123,42 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &459090877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 459090878}
+  m_Layer: 0
+  m_Name: ObjetosDaCena
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &459090878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459090877}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.453108, y: -2.6532989, z: -0.104204014}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 698605877}
+  - {fileID: 813330796}
+  - {fileID: 1297235691}
+  - {fileID: 490491143}
+  - {fileID: 507655717}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &490491139
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,11 +311,11 @@ Transform:
   m_GameObject: {fileID: 490491139}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.24, y: -1.82, z: 0}
+  m_LocalPosition: {x: 1.2131081, y: 0.8332988, z: 0.104204014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 459090878}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &507655712
 GameObject:
@@ -418,12 +454,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507655712}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: -1.51, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.453108, y: 1.1432989, z: 0.104204014}
   m_LocalScale: {x: 1.0946938, y: 5.602526, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 459090878}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &507655718
 MonoBehaviour:
@@ -564,11 +600,11 @@ Transform:
   m_GameObject: {fileID: 698605874}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.6293, y: -4.8926, z: 0}
+  m_LocalPosition: {x: 5.8238077, y: -2.2393012, z: 0.104204014}
   m_LocalScale: {x: 21.365076, y: 1.2124314, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 459090878}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &813330793
 GameObject:
@@ -694,11 +730,11 @@ Transform:
   m_GameObject: {fileID: 813330793}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.70988464, w: 0.70431805}
-  m_LocalPosition: {x: -13.2279, y: -0.776, z: 0}
-  m_LocalScale: {x: 9.432681, y: 1.250623, z: 1}
+  m_LocalPosition: {x: -4.7747917, y: 1.8772988, z: 0.104204014}
+  m_LocalScale: {x: 9.432682, y: 1.2506229, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 459090878}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.451}
 --- !u!1 &873844686
 GameObject:
@@ -1111,20 +1147,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297235687}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.505, y: -4.301, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.9481077, y: -1.6477013, z: 0.104204014}
   m_LocalScale: {x: 0.85949117, y: 0.21762303, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 459090878}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 873844692}
-  - {fileID: 698605877}
-  - {fileID: 813330796}
-  - {fileID: 1297235691}
-  - {fileID: 490491143}
-  - {fileID: 507655717}
+  - {fileID: 459090878}
