@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -28,6 +28,29 @@ public class PlayerController : MonoBehaviour
     bool superJumpAcert;
     int printContSuperJump;
 
+    
+
+   
+    
+
+    public Transform arm;
+    public float stretchDistance = 3f;
+    public float stretchDuration = 2f;
+    private Vector3 originalPosition;
+    private bool isStretching = false;
+    private Transform targetBox;
+
+   
+    GameObject boxHolded;
+    public bool puxouCaixa;
+    [SerializeField] Vector2 point;
+    bool holding;
+    public GameObject local;
+    [SerializeField] float radius;
+    [SerializeField] LayerMask layerMask;
+
+    
+
     private void Awake()
     {
         render = GetComponent<SpriteRenderer>();
@@ -44,6 +67,8 @@ public class PlayerController : MonoBehaviour
         inputs.Player.Agachar.canceled += ctx => agachar = false;
         inputs.Player.SuperPulo.started += ctx => superJumpAcert = true;
         inputs.Player.SuperPulo.canceled += ctx => superJumpAcert = false;
+        inputs.Player.puxar.performed += ctx => PickBox();
+        inputs.Player.braço.performed += ctx => StretchingArm();
     }
     private void Update()
     {
@@ -143,5 +168,78 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         inputs.Disable();
+    }
+    void PickBox()
+    {
+        if (holding == true)
+        {
+            holding = false;
+            boxHolded.transform.parent = null;
+            boxHolded.GetComponent<Rigidbody2D>().isKinematic = false;
+            boxHolded = null;
+            return;
+        }
+        Collider2D hitColliders = Physics2D.OverlapCircle(transform.position, radius, layerMask);
+        if (hitColliders != null)
+        {
+
+            if (hitColliders.GetComponent<Rigidbody2D>())
+            {
+                boxHolded = hitColliders.gameObject;
+                boxHolded.GetComponent<Rigidbody2D>().isKinematic = true;
+                boxHolded.transform.position = transform.position + new Vector3(-1, 0, 0);
+                boxHolded.transform.parent = local.transform;
+                holding = true;
+            }
+        }
+    }
+
+    void StretchingArm()
+    {
+        originalPosition = arm.position;
+        if (Input.GetKeyDown(KeyCode.J) && !isStretching)
+        {
+            StartCoroutine(StretchArm());
+        }
+    }
+
+    IEnumerator StretchArm()
+    {
+        isStretching = true;
+        Vector3 targetPosition = arm.position + arm.right * stretchDistance;
+        float time = 0f;
+
+        // Esticar o bra�o
+        while (time < 1f)
+        {
+            time += Time.deltaTime * stretchDuration;
+            arm.position = Vector3.Lerp(originalPosition, targetPosition, time);
+            yield return null;
+        }
+
+        // Detectar se h� uma caixa pr�xima
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(arm.position, 0.5f, layerMask);
+        if (colliders.Length > 0)
+        {
+            targetBox = colliders[0].transform;
+            // Mover a caixa para o bra�o
+            targetBox.position = arm.position;
+        }
+
+        // Voltar o bra�o para a posi��o original
+        time = 0f;
+        while (time < 1f)
+        {
+            time += Time.deltaTime * stretchDuration;
+            arm.position = Vector3.Lerp(targetPosition, originalPosition, time);
+            if (targetBox)
+            {
+                targetBox.position = arm.position;
+            }
+            yield return null;
+        }
+
+        isStretching = false;
+        targetBox = null;
     }
 }

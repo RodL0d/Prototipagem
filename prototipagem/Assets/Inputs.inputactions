@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "pegar",
+                    "name": "puxar",
                     "type": "Button",
                     "id": "c76eaa09-962e-41fa-9c1d-1948ada2e114",
                     "expectedControlType": "Button",
@@ -63,6 +63,15 @@
                     "name": "Olhoinvisivel",
                     "type": "Button",
                     "id": "49b483ff-eca4-49d6-83f2-7294b0bd58cb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "braço",
+                    "type": "Button",
+                    "id": "bff6ee82-b35c-485a-90ae-752b38583a75",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -165,7 +174,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "pegar",
+                    "action": "puxar",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -188,6 +197,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Olhoinvisivel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "067dd7c6-53a2-44c2-9d38-567ae846b1a5",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "braço",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
