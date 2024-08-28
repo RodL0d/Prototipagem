@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.UI;
+using UnityEngine.SceneManagement;
 
 public class Bota_Vitoria_FaseFacil : MonoBehaviour
 {
@@ -23,7 +25,9 @@ public class Bota_Vitoria_FaseFacil : MonoBehaviour
         {
             print("pisou");
             pisou = true;
-            
+
+
+            SceneManager.LoadScene("FaseMedia");
         }
     }
 }
