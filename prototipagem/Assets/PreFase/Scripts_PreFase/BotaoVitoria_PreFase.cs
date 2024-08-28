@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.UI;
+using UnityEngine.SceneManagement;
 
 
 public class BotaoVitoria_PreFase : MonoBehaviour
@@ -25,7 +26,7 @@ public class BotaoVitoria_PreFase : MonoBehaviour
             print("pisou");
             pisou = true;
 
-            
+            SceneManager.LoadScene("FaseFacil");
         }
     }
 }
