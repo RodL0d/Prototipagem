@@ -27,7 +27,7 @@ public class Bota_Vitoria_FaseFacil : MonoBehaviour
             pisou = true;
 
 
-            SceneManager.LoadScene("FaseMedia");
+            //SceneManager.LoadScene("FaseMedia");
         }
     }
 }
