@@ -6,14 +6,39 @@ public class Botão1_FaseDificil : MonoBehaviour
 {
     //private Animator anim;
     public bool pisou;
+
+    private bool podeAbrir;
+
+    [SerializeField] Botão1_FaseDificil botaoSecundario;
+
+    public float velocidade;
+    bool daniel;
+    Vector2 posicaoInicial;
+    [SerializeField] int maxposicao = 5;
+    [SerializeField] Transform barreira;
     void Start()
     {
-
+        posicaoInicial = barreira.transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
+
+
+
+
+        if (podeAbrir && barreira.transform.position.y <= maxposicao + posicaoInicial.y)
+        {
+            barreira.transform.Translate(Vector2.up * Time.deltaTime * velocidade);
+
+            daniel = true;
+        }
+
+        if (!podeAbrir && daniel == true && barreira.transform.position.y >= posicaoInicial.y)
+        {
+            barreira.transform.Translate(Vector2.down * Time.deltaTime * velocidade);
+            //transform.localPosition = new Vector2(8, 3);
+        }
 
     }
 
@@ -23,16 +48,34 @@ public class Botão1_FaseDificil : MonoBehaviour
         {
             print("pisou");
             //anim.SetBool("Botao", true);
-            pisou = true;
+
+            if(botaoSecundario != null)
+            {
+                pisou = true;
+
+                podeAbrir = pisou && botaoSecundario.pisou;
+            }
+            else
+            {
+                podeAbrir = true;
+            }
+            
+
+
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Caixa")
-        //{
-        //anim.SetBool("Botao", false);
-        pisou = false;
-        // }
+        if (botaoSecundario != null)
+        {
+            pisou = false;
+
+            podeAbrir = pisou && botaoSecundario.pisou;
+        }
+        else
+        {
+            podeAbrir = false;
+        }
     }
 }
