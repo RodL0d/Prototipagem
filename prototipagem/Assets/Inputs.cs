@@ -64,7 +64,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""pegar"",
+                    ""name"": ""puxar"",
                     ""type"": ""Button"",
                     ""id"": ""c76eaa09-962e-41fa-9c1d-1948ada2e114"",
                     ""expectedControlType"": ""Button"",
@@ -76,6 +76,15 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""name"": ""SuperPulo"",
                     ""type"": ""Button"",
                     ""id"": ""cdaf935e-766f-4a29-ba40-8f4fda8f8714"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""braço"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef90adb7-4e95-4bfb-9c1c-925b4a874a04"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -174,11 +183,11 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e558831a-ac4e-45e5-81ca-6e0c30b1782d"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/l"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""pegar"",
+                    ""action"": ""puxar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -190,6 +199,17 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SuperPulo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68479b30-3985-4a7d-bca8-3445c3901e13"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""braço"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -204,8 +224,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_Player_Andar = m_Player.FindAction("Andar", throwIfNotFound: true);
         m_Player_Empurrar = m_Player.FindAction("Empurrar", throwIfNotFound: true);
         m_Player_Agachar = m_Player.FindAction("Agachar", throwIfNotFound: true);
-        m_Player_pegar = m_Player.FindAction("pegar", throwIfNotFound: true);
+        m_Player_puxar = m_Player.FindAction("puxar", throwIfNotFound: true);
         m_Player_SuperPulo = m_Player.FindAction("SuperPulo", throwIfNotFound: true);
+        m_Player_braço = m_Player.FindAction("braço", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -271,8 +292,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Andar;
     private readonly InputAction m_Player_Empurrar;
     private readonly InputAction m_Player_Agachar;
-    private readonly InputAction m_Player_pegar;
+    private readonly InputAction m_Player_puxar;
     private readonly InputAction m_Player_SuperPulo;
+    private readonly InputAction m_Player_braço;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
@@ -281,8 +303,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         public InputAction @Andar => m_Wrapper.m_Player_Andar;
         public InputAction @Empurrar => m_Wrapper.m_Player_Empurrar;
         public InputAction @Agachar => m_Wrapper.m_Player_Agachar;
-        public InputAction @pegar => m_Wrapper.m_Player_pegar;
+        public InputAction @puxar => m_Wrapper.m_Player_puxar;
         public InputAction @SuperPulo => m_Wrapper.m_Player_SuperPulo;
+        public InputAction @braço => m_Wrapper.m_Player_braço;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -304,12 +327,15 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Agachar.started += instance.OnAgachar;
             @Agachar.performed += instance.OnAgachar;
             @Agachar.canceled += instance.OnAgachar;
-            @pegar.started += instance.OnPegar;
-            @pegar.performed += instance.OnPegar;
-            @pegar.canceled += instance.OnPegar;
+            @puxar.started += instance.OnPuxar;
+            @puxar.performed += instance.OnPuxar;
+            @puxar.canceled += instance.OnPuxar;
             @SuperPulo.started += instance.OnSuperPulo;
             @SuperPulo.performed += instance.OnSuperPulo;
             @SuperPulo.canceled += instance.OnSuperPulo;
+            @braço.started += instance.OnBraço;
+            @braço.performed += instance.OnBraço;
+            @braço.canceled += instance.OnBraço;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -326,12 +352,15 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Agachar.started -= instance.OnAgachar;
             @Agachar.performed -= instance.OnAgachar;
             @Agachar.canceled -= instance.OnAgachar;
-            @pegar.started -= instance.OnPegar;
-            @pegar.performed -= instance.OnPegar;
-            @pegar.canceled -= instance.OnPegar;
+            @puxar.started -= instance.OnPuxar;
+            @puxar.performed -= instance.OnPuxar;
+            @puxar.canceled -= instance.OnPuxar;
             @SuperPulo.started -= instance.OnSuperPulo;
             @SuperPulo.performed -= instance.OnSuperPulo;
             @SuperPulo.canceled -= instance.OnSuperPulo;
+            @braço.started -= instance.OnBraço;
+            @braço.performed -= instance.OnBraço;
+            @braço.canceled -= instance.OnBraço;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -355,7 +384,8 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         void OnAndar(InputAction.CallbackContext context);
         void OnEmpurrar(InputAction.CallbackContext context);
         void OnAgachar(InputAction.CallbackContext context);
-        void OnPegar(InputAction.CallbackContext context);
+        void OnPuxar(InputAction.CallbackContext context);
         void OnSuperPulo(InputAction.CallbackContext context);
+        void OnBraço(InputAction.CallbackContext context);
     }
 }
