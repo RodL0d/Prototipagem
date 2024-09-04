@@ -2912,7 +2912,6 @@ GameObject:
   - component: {fileID: 1595813014}
   - component: {fileID: 1595813018}
   - component: {fileID: 1595813016}
-  - component: {fileID: 1595813019}
   m_Layer: 0
   m_Name: Barreira
   m_TagString: Untagged
@@ -3032,21 +3031,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1595813019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1595813013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2c1b5df20d4b4a42a6e1fbacf7f22cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidade: 10
-  botao: {fileID: 1605714876}
-  maxposicao: 5
 --- !u!1 &1605714874
 GameObject:
   m_ObjectHideFlags: 0
@@ -3058,7 +3042,7 @@ GameObject:
   - component: {fileID: 1605714875}
   - component: {fileID: 1605714878}
   - component: {fileID: 1605714877}
-  - component: {fileID: 1605714876}
+  - component: {fileID: 1605714879}
   m_Layer: 0
   m_Name: "Bot\xE3o"
   m_TagString: botao
@@ -3081,19 +3065,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 458456855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1605714876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1605714874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c97569e24205dc4498984024fd560d8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pisou: 0
 --- !u!61 &1605714877
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3191,6 +3162,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1605714879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605714874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f32be1661796501469e71bedf1c26bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pisou: 0
+  botaoSecundario: {fileID: 0}
+  velocidade: 5
+  maxposicao: 5
+  barreira: {fileID: 1595813014}
 --- !u!1 &1901488231
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,6 +3226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pisou: 0
+  sceneName: pre fase 4
 --- !u!61 &1901488234
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3387,6 +3376,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
   firePoint: {fileID: 0}
+  arm: {fileID: 0}
+  stretchDistance: 3
+  stretchDuration: 2
+  puxouCaixa: 0
+  point: {x: 0, y: 0}
+  local: {fileID: 0}
+  radius: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &2025322914
 Rigidbody2D:
   serializedVersion: 4

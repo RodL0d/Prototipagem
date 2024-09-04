@@ -5,10 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/BETA/Scenes/SampleScene.unity
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: "Assets/FASE 1/PreFase/Pr\xE9Fase.unity"
+    guid: 6fab80cec0a59e04f9817e5b961efc6a
   - enabled: 1
     path: Assets/FASE 1/FaseFacil/FaseFacil.unity
     guid: d1b3caac35371ba49b0726320ab6b450
+  - enabled: 1
+    path: Assets/Scenes fase 4/pre fase 4.unity
+    guid: a68884992cb673445a57d2c1092ac262
+  - enabled: 1
+    path: Assets/Scenes fase 4/Fase4 pt1.unity
+    guid: d2df0d4136298f24e80403753400dd42
+  - enabled: 1
+    path: Assets/Scenes fase 4/Fase4 pt2.unity
+    guid: 8fa6fbf8a3007914bb7a9c27997c5b88
+  - enabled: 1
+    path: Assets/Scenes fase 4/Fase4 pt3.unity
+    guid: 99be5c822b1bc9643adadc9c0ea7e448
   m_configObjects: {}

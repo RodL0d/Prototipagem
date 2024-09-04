@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.UI;
+
 using UnityEngine.SceneManagement;
 
 public class Bota_Vitoria_FaseFacil : MonoBehaviour
 {
     public bool pisou;
+    [SerializeField] string sceneName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,7 @@ public class Bota_Vitoria_FaseFacil : MonoBehaviour
             pisou = true;
 
 
-            //SceneManager.LoadScene("FaseMedia");
+            SceneManager.LoadScene(sceneName);
         }
     }
 }
