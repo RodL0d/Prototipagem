@@ -5,7 +5,7 @@ using Unity.UI;
 using UnityEngine.SceneManagement;
 
 
-public class BotaoVitoria_PreFase : MonoBehaviour
+public class BotaoVitoria : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
