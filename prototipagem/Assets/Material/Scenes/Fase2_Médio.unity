@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 5
-  botao: {fileID: 0}
+  botao: {fileID: 2056843106}
   maxposicao: 3
 --- !u!61 &330824118
 BoxCollider2D:
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 5
-  botao: {fileID: 0}
+  botao: {fileID: 335923307}
   maxposicao: 5
 --- !u!61 &588440306
 BoxCollider2D:
