@@ -513,7 +513,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16
   radius: 0.56
-  offset: {x: 0, y: -0.42, z: 0}
+  offset: {x: 0, y: -0.45, z: 0}
 --- !u!114 &873844688
 MonoBehaviour:
   m_ObjectHideFlags: 0
