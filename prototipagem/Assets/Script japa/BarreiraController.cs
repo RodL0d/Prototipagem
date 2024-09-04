@@ -10,8 +10,6 @@ public class BarreiraController : MonoBehaviour
     bool daniel;
     Vector2 posicaoInicial;
     [SerializeField] int maxposicao = 5;
-    [SerializeField]
-    chave chave;
     void Start()
     {
         posicaoInicial = transform.position;
@@ -24,7 +22,7 @@ public class BarreiraController : MonoBehaviour
 
 
 
-        if (botao.pisou == true && transform.position.y <= maxposicao + posicaoInicial.y && chave.getChave == true)
+        if (botao.pisou == true && transform.position.y <= maxposicao + posicaoInicial.y )
         {
             transform.Translate(Vector2.up * Time.deltaTime * velocidade);
 

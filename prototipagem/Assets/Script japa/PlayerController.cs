@@ -175,6 +175,7 @@ public class PlayerController : MonoBehaviour
         {
             holding = false;
             boxHolded.transform.parent = null;
+            boxHolded.GetComponent<BoxCollider2D>().isTrigger = false;
             boxHolded.GetComponent<Rigidbody2D>().isKinematic = false;
             boxHolded = null;
             return;
@@ -186,9 +187,10 @@ public class PlayerController : MonoBehaviour
             if (hitColliders.GetComponent<Rigidbody2D>())
             {
                 boxHolded = hitColliders.gameObject;
+                boxHolded.GetComponent<BoxCollider2D>().isTrigger = true;
                 boxHolded.GetComponent<Rigidbody2D>().isKinematic = true;
                 boxHolded.transform.position = transform.position + new Vector3(-1, 0, 0);
-                boxHolded.transform.parent = local.transform;
+                boxHolded.transform.parent = transform;
                 holding = true;
             }
         }

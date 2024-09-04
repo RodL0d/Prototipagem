@@ -428,8 +428,8 @@ Transform:
   m_GameObject: {fileID: 315292440}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.67, y: -1.5054, z: 0}
-  m_LocalScale: {x: 1, y: 1.4788445, z: 1}
+  m_LocalPosition: {x: -8.62, y: 6.17, z: 0}
+  m_LocalScale: {x: 1, y: 1.1219994, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -454,10 +454,10 @@ MonoBehaviour:
   puxouCaixa: 0
   point: {x: 0, y: 0}
   local: {fileID: 0}
-  radius: 0
+  radius: 2
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2
 --- !u!114 &315292447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,9 +607,9 @@ GameObject:
   - component: {fileID: 586104278}
   - component: {fileID: 586104277}
   - component: {fileID: 586104276}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Caixa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

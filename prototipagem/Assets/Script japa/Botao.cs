@@ -6,7 +6,7 @@ public class Botao : MonoBehaviour
 {
     //private Animator anim;
     public bool pisou;
-    chave chave;
+  
     void Start()
     {
 
@@ -30,11 +30,9 @@ public class Botao : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Caixa")
-        //{
-        //anim.SetBool("Botao", false);
+       
         pisou = false;
-        // }
+     
     }
 
 }
