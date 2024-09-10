@@ -123,6 +123,41 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &274601302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 274601303}
+  m_Layer: 5
+  m_Name: MenuPrincipal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &274601303
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274601302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 672005946}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &300364216
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +171,7 @@ GameObject:
   - component: {fileID: 300364219}
   - component: {fileID: 300364218}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: BtSair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -473,9 +508,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1049494331}
-  - {fileID: 2031980225}
   - {fileID: 926003331}
+  - {fileID: 2031980225}
   - {fileID: 300364217}
+  - {fileID: 274601303}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -540,7 +576,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: JOGAR
+  m_text: SAIR
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b49a837f539d75f409e0134d0e7d0490, type: 2}
   m_sharedMaterial: {fileID: 1270287484492294991, guid: b49a837f539d75f409e0134d0e7d0490, type: 2}
@@ -630,7 +666,7 @@ GameObject:
   - component: {fileID: 926003333}
   - component: {fileID: 926003332}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: BtJogar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -750,7 +786,7 @@ GameObject:
   - component: {fileID: 1049494333}
   - component: {fileID: 1049494332}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Fundo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1030,7 +1066,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: JOGAR
+  m_text: "OP\xC7\xD5ES\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b49a837f539d75f409e0134d0e7d0490, type: 2}
   m_sharedMaterial: {fileID: 1270287484492294991, guid: b49a837f539d75f409e0134d0e7d0490, type: 2}
@@ -1120,7 +1156,7 @@ GameObject:
   - component: {fileID: 2031980227}
   - component: {fileID: 2031980226}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BtOpcao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
