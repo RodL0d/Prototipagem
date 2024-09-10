@@ -10,6 +10,7 @@ TagManager:
   - botao
   - Sons
   - Encaixe
+  - Pickup
   layers:
   - Default
   - TransparentFX

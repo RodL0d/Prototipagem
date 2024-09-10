@@ -89,6 +89,24 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Puxar "",
+                    ""type"": ""Button"",
+                    ""id"": ""85f9c095-1d29-4628-b5e7-0826ce886bb4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Esticar Braço"",
+                    ""type"": ""Button"",
+                    ""id"": ""f1afc097-4fc8-4626-88fb-76ceed938ade"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -212,6 +230,28 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""action"": ""braço"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""26d8656d-3e7f-4791-9cdd-573e920f4b65"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Puxar "",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3ea2f7a2-108e-4137-b733-b9ca842cfc1b"",
+                    ""path"": ""<Keyboard>/#(J)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Esticar Braço"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -227,6 +267,8 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_Player_puxar = m_Player.FindAction("puxar", throwIfNotFound: true);
         m_Player_SuperPulo = m_Player.FindAction("SuperPulo", throwIfNotFound: true);
         m_Player_braço = m_Player.FindAction("braço", throwIfNotFound: true);
+        m_Player_Puxar = m_Player.FindAction("Puxar ", throwIfNotFound: true);
+        m_Player_EsticarBraço = m_Player.FindAction("Esticar Braço", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -295,6 +337,8 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_puxar;
     private readonly InputAction m_Player_SuperPulo;
     private readonly InputAction m_Player_braço;
+    private readonly InputAction m_Player_Puxar;
+    private readonly InputAction m_Player_EsticarBraço;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
@@ -306,6 +350,8 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         public InputAction @puxar => m_Wrapper.m_Player_puxar;
         public InputAction @SuperPulo => m_Wrapper.m_Player_SuperPulo;
         public InputAction @braço => m_Wrapper.m_Player_braço;
+        public InputAction @Puxar => m_Wrapper.m_Player_Puxar;
+        public InputAction @EsticarBraço => m_Wrapper.m_Player_EsticarBraço;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -336,6 +382,12 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @braço.started += instance.OnBraço;
             @braço.performed += instance.OnBraço;
             @braço.canceled += instance.OnBraço;
+            @Puxar.started += instance.OnPuxar;
+            @Puxar.performed += instance.OnPuxar;
+            @Puxar.canceled += instance.OnPuxar;
+            @EsticarBraço.started += instance.OnEsticarBraço;
+            @EsticarBraço.performed += instance.OnEsticarBraço;
+            @EsticarBraço.canceled += instance.OnEsticarBraço;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -361,6 +413,12 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @braço.started -= instance.OnBraço;
             @braço.performed -= instance.OnBraço;
             @braço.canceled -= instance.OnBraço;
+            @Puxar.started -= instance.OnPuxar;
+            @Puxar.performed -= instance.OnPuxar;
+            @Puxar.canceled -= instance.OnPuxar;
+            @EsticarBraço.started -= instance.OnEsticarBraço;
+            @EsticarBraço.performed -= instance.OnEsticarBraço;
+            @EsticarBraço.canceled -= instance.OnEsticarBraço;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -387,5 +445,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         void OnPuxar(InputAction.CallbackContext context);
         void OnSuperPulo(InputAction.CallbackContext context);
         void OnBraço(InputAction.CallbackContext context);
+      
+        void OnEsticarBraço(InputAction.CallbackContext context);
     }
 }

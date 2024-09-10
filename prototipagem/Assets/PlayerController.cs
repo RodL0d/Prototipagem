@@ -67,8 +67,8 @@ public class PlayerController : MonoBehaviour
         inputs.Player.Agachar.canceled += ctx => agachar = false;
         inputs.Player.SuperPulo.started += ctx => superJumpAcert = true;
         inputs.Player.SuperPulo.canceled += ctx => superJumpAcert = false;
-        inputs.Player.puxar.performed += ctx => PickBox();
-        inputs.Player.braço.performed += ctx => StretchingArm();
+        inputs.Player.puxar.performed += ctx => PickBox(null);
+        
     }
     private void Update()
     {
@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour
     {
         inputs.Disable();
     }
-    void PickBox()
+   public void PickBox(Collider2D hitColliders)
     {
         if (holding == true)
         {
@@ -180,7 +180,10 @@ public class PlayerController : MonoBehaviour
             boxHolded = null;
             return;
         }
-        Collider2D hitColliders = Physics2D.OverlapCircle(transform.position, radius, layerMask);
+        if (hitColliders == null)
+        {
+            hitColliders = Physics2D.OverlapCircle(transform.position, radius, layerMask);
+        }
         if (hitColliders != null)
         {
 
@@ -196,52 +199,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void StretchingArm()
-    {
-        originalPosition = arm.position;
-        if (Input.GetKeyDown(KeyCode.J) && !isStretching)
-        {
-            StartCoroutine(StretchArm());
-        }
-    }
+  
 
-    IEnumerator StretchArm()
-    {
-        isStretching = true;
-        Vector3 targetPosition = arm.position + arm.right * stretchDistance;
-        float time = 0f;
-
-        // Esticar o bra�o
-        while (time < 1f)
-        {
-            time += Time.deltaTime * stretchDuration;
-            arm.position = Vector3.Lerp(originalPosition, targetPosition, time);
-            yield return null;
-        }
-
-        // Detectar se h� uma caixa pr�xima
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(arm.position, 0.5f, layerMask);
-        if (colliders.Length > 0)
-        {
-            targetBox = colliders[0].transform;
-            // Mover a caixa para o bra�o
-            targetBox.position = arm.position;
-        }
-
-        // Voltar o bra�o para a posi��o original
-        time = 0f;
-        while (time < 1f)
-        {
-            time += Time.deltaTime * stretchDuration;
-            arm.position = Vector3.Lerp(targetPosition, originalPosition, time);
-            if (targetBox)
-            {
-                targetBox.position = arm.position;
-            }
-            yield return null;
-        }
-
-        isStretching = false;
-        targetBox = null;
-    }
+    
 }
