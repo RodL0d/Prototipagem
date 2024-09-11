@@ -15,11 +15,11 @@ public class PlayerController : MonoBehaviour
     const float jumpForce = 10;
     const float dashForce = 10;
 
-    [SerializeField] bool SuperPulo;
-    [SerializeField] bool puxarCaixa;
-    [SerializeField] bool EsticarBraço;
-    [SerializeField] bool olhoBionico;
-    [SerializeField] bool OuvidoBionico;
+     [SerializeField] public bool SuperPulo;
+    [SerializeField]  public bool puxarCaixa;
+    [SerializeField]  public bool EsticarBraço;
+    [SerializeField]  public bool olhoBionico;
+    [SerializeField]  public bool OuvidoBionico;
 
     bool jumping, dashing, agachar;
     Vector2 direction;
