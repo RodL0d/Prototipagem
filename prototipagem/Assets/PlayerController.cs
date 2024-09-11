@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour
     const float jumpForce = 10;
     const float dashForce = 10;
 
+    [SerializeField] bool SuperPulo;
+    [SerializeField] bool puxarCaixa;
+    [SerializeField] bool EsticarBraço;
+    [SerializeField] bool olhoBionico;
+    [SerializeField] bool OuvidoBionico;
+
     bool jumping, dashing, agachar;
     Vector2 direction;
     [SerializeField] GameObject projectilePrefab;
@@ -116,7 +122,7 @@ public class PlayerController : MonoBehaviour
     }
       private void SuperJump()
     {
-        if (superJumpAcert)
+        if (superJumpAcert && SuperPulo)
         {
             contSuperJump += Time.deltaTime;
             printContSuperJump++;
