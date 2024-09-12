@@ -3226,7 +3226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pisou: 0
-  sceneName: Fase Dificil
+  sceneName: Fase_Media
 --- !u!61 &1901488234
 BoxCollider2D:
   m_ObjectHideFlags: 0
