@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:prototipagem/Assets/FASE 2.meta
 guid: b42c84d4fabae284b9869df0a66589da
+========
+guid: 380c4365eb39b2f4288d5213e2bf5255
+>>>>>>>> SasseFaseMedia:prototipagem/Assets/Assets Menu.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
