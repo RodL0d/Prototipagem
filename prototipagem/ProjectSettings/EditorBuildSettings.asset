@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Assets Menu/Menu.unity
+    guid: ca870a1ccea116341b008c658e619c7f
+  - enabled: 1
     path: "Assets/FASE 1/PreFase/Pr\xE9Fase.unity"
     guid: 6fab80cec0a59e04f9817e5b961efc6a
   - enabled: 1
@@ -14,6 +17,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FASE 1/Fase Dificil/Fase_Dificil.unity
     guid: 23e0da2c985d5e44284f0584af4a7b28
+  - enabled: 1
+    path: Assets/FASE 2/Pre-Fase.unity
+    guid: d48cfd2b62c8d8f46b836a6f627543b2
+  - enabled: 1
+    path: Assets/FASE 2/Fase2_Facil.unity
+    guid: 53c5b3631d8aa59429e6be6f30eea2bc
+  - enabled: 1
+    path: "Assets/FASE 2/Fase2_M\xE9dio.unity"
+    guid: 1eaa86cbd2c9271478764f97a8868c68
+  - enabled: 1
+    path: "Assets/FASE 2/Fase2_Dif\xEDcil.unity"
+    guid: c6fb7af574d773345b9eeb9f11c941ed
   - enabled: 1
     path: Assets/Fase 3/Pre fase3.unity
     guid: 18f06546e88cd364781b7d8137fed15d
