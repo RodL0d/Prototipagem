@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -68,6 +69,7 @@ public class PlayerController : MonoBehaviour
         inputs.Player.SuperPulo.started += ctx => superJumpAcert = true;
         inputs.Player.SuperPulo.canceled += ctx => superJumpAcert = false;
         inputs.Player.puxar.performed += ctx => PickBox(null);
+
         
     }
     private void Update()
@@ -75,6 +77,8 @@ public class PlayerController : MonoBehaviour
         SetGravity();
         Movement();
         SuperJump();
+        Passarfase();
+        RetrocederFase();
     }
 
     private void Movement()
@@ -199,7 +203,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-  
+    //temporario
+    private void Passarfase()
+    {
+        int index = SceneManager.GetActiveScene().buildIndex;
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            SceneManager.LoadScene(index + 1);
 
-    
+        }
+    } 
+    private void RetrocederFase()
+    {
+        int index = SceneManager.GetActiveScene().buildIndex;
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            SceneManager.LoadScene(index - 1);
+
+        }
+    }
 }
