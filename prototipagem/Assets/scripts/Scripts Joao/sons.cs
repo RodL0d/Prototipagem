@@ -18,7 +18,7 @@ public class sons : MonoBehaviour
 
     private void Update()
     {
-        if (abre && porta.transform.position.y <= maxposicao + posicaoInicial.y)
+        if (abre && porta.transform.position.y <= maxposicao + posicaoInicial.y )
         {
             porta.transform.Translate(Vector2.up * Time.deltaTime * velocidade);
         }

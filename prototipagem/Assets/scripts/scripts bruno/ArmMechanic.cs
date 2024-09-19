@@ -16,6 +16,8 @@ public class ArmMechanic : MonoBehaviour
         private Vector3 originalArmPosition;
         private Vector3 armDirection;
 
+    PlayerController playerController;
+
     void Start()
     {
             originalArmPosition = arm.localPosition;
@@ -33,7 +35,7 @@ public class ArmMechanic : MonoBehaviour
             isFacingRight = true;
             transform.localScale = new Vector3(1, 1, 1); // Vira o player para a direita
             }
-            if (Input.GetKeyDown(KeyCode.J) && !isExtending && !isPulling)
+            if (Input.GetKeyDown(KeyCode.J) && !isExtending && !isPulling && playerController.EsticarBraço)
             {
                 SetArmDirection();
                 isExtending = true;
