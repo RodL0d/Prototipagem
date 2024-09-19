@@ -4012,6 +4012,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
   firePoint: {fileID: 0}
+  SuperPulo: 1
+  puxarCaixa: 1
+  "EsticarBra\xE7o": 0
+  olhoBionico: 0
+  OuvidoBionico: 0
   arm: {fileID: 0}
   stretchDistance: 3
   stretchDuration: 2

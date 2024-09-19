@@ -8,6 +8,8 @@ public class Mecanicas : MonoBehaviour
     [SerializeField]LayerMask Objetoinvisivel;
     float cooldown =5;
 
+    PlayerController playerController;
+
     void Start()
     {
         Camera.main.GetComponent<Camera>().cullingMask = (1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5);
@@ -23,7 +25,7 @@ public class Mecanicas : MonoBehaviour
             Debug.Log(cooldown);
         }
 
-        if (Input.GetKeyDown(KeyCode.K) && cooldown <= 0)
+        if (Input.GetKeyDown(KeyCode.K) && cooldown <= 0 && playerController.olhoBionico)
         {
 
             StartCoroutine( Olhobionico());
