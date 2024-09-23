@@ -20,7 +20,7 @@ public class Mecanicas : MonoBehaviour
         if (cooldown > 0)
         {
             cooldown = cooldown - Time.deltaTime;
-            Debug.Log(cooldown);
+           Debug.Log(cooldown);
         }
 
         if (Input.GetKeyDown(KeyCode.K) && cooldown <= 0)
