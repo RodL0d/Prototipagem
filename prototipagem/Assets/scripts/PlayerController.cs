@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(PlayerCollider))]
+[RequireComponent(typeof(Tempodevida))]
+
+[RequireComponent(typeof(HUD))]
 public class PlayerController : MonoBehaviour
 {
     const float speed = 5;
@@ -28,7 +31,9 @@ public class PlayerController : MonoBehaviour
     Inputs inputs;
     bool superJumpAcert;
     int printContSuperJump;
+    HUD hud;
 
+    const float limiteSuperPulo = 2F;
     [SerializeField] public bool SuperPulo;
     [SerializeField] public bool puxarCaixa;
     [SerializeField] public bool EsticarBraço;
@@ -59,7 +64,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<PlayerCollider>();
         animator = GetComponent<Animator>();
-
+        hud = GetComponent<HUD>();
         inputs = new Inputs();
 
         inputs.Player.Pular.performed += ctx => Jump();
@@ -114,14 +119,17 @@ public class PlayerController : MonoBehaviour
         }
              
     }
+
+    
       private void SuperJump()
     {
         if (superJumpAcert && SuperPulo)
         {
             contSuperJump += Time.deltaTime;
+            hud.UpdateSuperPuloBar(contSuperJump, limiteSuperPulo);
             printContSuperJump++;
             print(printContSuperJump);
-            if (contSuperJump >= 2)
+            if (contSuperJump >= limiteSuperPulo)
             {
                 float newJumpForce;
                 newJumpForce = jumpForce + 2;
