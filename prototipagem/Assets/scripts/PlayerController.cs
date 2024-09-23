@@ -29,10 +29,11 @@ public class PlayerController : MonoBehaviour
     bool superJumpAcert;
     int printContSuperJump;
 
-    
-
-   
-    
+    [SerializeField] public bool SuperPulo;
+    [SerializeField] public bool puxarCaixa;
+    [SerializeField] public bool EsticarBraço;
+    [SerializeField] public bool olhoBionico;
+    [SerializeField] public bool OuvidoBionico;
 
     public Transform arm;
     public float stretchDistance = 3f;
@@ -64,8 +65,6 @@ public class PlayerController : MonoBehaviour
         inputs.Player.Pular.performed += ctx => Jump();
         inputs.Player.Pular.canceled += ctx => jumping = false;
         inputs.Player.Andar.performed += ctx => direction = ctx.ReadValue<Vector2>();
-        inputs.Player.Agachar.performed += ctx => Agachar();
-        inputs.Player.Agachar.canceled += ctx => agachar = false;
         inputs.Player.SuperPulo.started += ctx => superJumpAcert = true;
         inputs.Player.SuperPulo.canceled += ctx => superJumpAcert = false;
         inputs.Player.puxar.performed += ctx => PickBox(null);
@@ -102,9 +101,6 @@ public class PlayerController : MonoBehaviour
             rb.velocity += Vector2.up * Physics2D.gravity * lowJumpMultiplier * Time.deltaTime;
         }
     }
-    private void Agachar()
-    {
-    }
     private void Jump()
 
     {
@@ -120,7 +116,7 @@ public class PlayerController : MonoBehaviour
     }
       private void SuperJump()
     {
-        if (superJumpAcert)
+        if (superJumpAcert && SuperPulo)
         {
             contSuperJump += Time.deltaTime;
             printContSuperJump++;
@@ -175,7 +171,7 @@ public class PlayerController : MonoBehaviour
     }
    public void PickBox(Collider2D hitColliders)
     {
-        if (holding == true)
+        if (holding == true && puxarCaixa)
         {
             holding = false;
             boxHolded.transform.parent = null;
