@@ -11,6 +11,7 @@ public class ArmCollisionChecker : MonoBehaviour
     {
         armMechanic = GetComponentInParent<ArmMechanic>();
         playerController = GetComponentInParent<PlayerController>();
+        layerMask = LayerMask.GetMask("TransparentFX", "Water");
     }
 
     private void Update()

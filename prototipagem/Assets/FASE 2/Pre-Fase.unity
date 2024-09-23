@@ -3836,6 +3836,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 106364677}
+    - target: {fileID: 5703411678778398436, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+      propertyPath: SuperPulo
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8040068063280202567, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
       propertyPath: m_Name
       value: Player
