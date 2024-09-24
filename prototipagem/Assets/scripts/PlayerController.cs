@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(PlayerCollider))]
 [RequireComponent(typeof(Tempodevida))]
-[RequireComponent(typeof(ArmCollisionChecker))]
+[RequireComponent(typeof(ArmMechanic))]
 [RequireComponent(typeof(HUD))]
 public class PlayerController : MonoBehaviour
 {

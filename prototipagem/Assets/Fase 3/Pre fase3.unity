@@ -3045,6 +3045,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3227163486639343036, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 255538078}
+    - target: {fileID: 5050890174664109451, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+      propertyPath: arm
+      value: 
+      objectReference: {fileID: 2093030191}
+    - target: {fileID: 5703411678778398436, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+      propertyPath: SuperPulo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5703411678778398436, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+      propertyPath: "EsticarBra\xE7o"
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8040068063280202567, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3094,6 +3110,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+--- !u!4 &2093030191 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2860047391316755203, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+  m_PrefabInstance: {fileID: 2093030190}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

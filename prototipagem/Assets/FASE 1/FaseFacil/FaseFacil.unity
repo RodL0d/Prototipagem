@@ -2772,6 +2772,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5050890174664109451, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+      propertyPath: arm
+      value: 
+      objectReference: {fileID: 1935547282}
     - target: {fileID: 8040068063280202567, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -3558,6 +3562,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1935547282 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2860047391316755203, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+  m_PrefabInstance: {fileID: 849371564}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

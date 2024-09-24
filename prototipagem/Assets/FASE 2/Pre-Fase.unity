@@ -3836,6 +3836,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 106364677}
+    - target: {fileID: 5050890174664109451, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+      propertyPath: arm
+      value: 
+      objectReference: {fileID: 1573223777}
     - target: {fileID: 5703411678778398436, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
       propertyPath: SuperPulo
       value: 1
@@ -3889,6 +3893,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+--- !u!4 &1573223777 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2860047391316755203, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+  m_PrefabInstance: {fileID: 1573223776}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1653066363
 GameObject:
   m_ObjectHideFlags: 0

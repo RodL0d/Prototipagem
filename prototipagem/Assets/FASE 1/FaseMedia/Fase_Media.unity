@@ -6621,6 +6621,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 837024386}
+    - target: {fileID: 5050890174664109451, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+      propertyPath: arm
+      value: 
+      objectReference: {fileID: 1605604035}
     - target: {fileID: 8040068063280202567, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
       propertyPath: m_Name
       value: Player
@@ -6670,6 +6674,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+--- !u!4 &1605604035 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2860047391316755203, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+  m_PrefabInstance: {fileID: 1605604034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2019369436
 GameObject:
   m_ObjectHideFlags: 0
