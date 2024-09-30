@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/FASE 1/FaseFacil/FaseFacil.unity
     guid: d1b3caac35371ba49b0726320ab6b450
   - enabled: 1
+    path: Assets/FASE 1/FaseMedia/Fase_Media.unity
+    guid: f84557e35c2727f4da2d0e48b9ea11f4
+  - enabled: 1
     path: Assets/FASE 1/Fase Dificil/Fase_Dificil.unity
     guid: 23e0da2c985d5e44284f0584af4a7b28
   - enabled: 1

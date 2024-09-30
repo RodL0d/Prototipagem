@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(PlayerCollider))]
+[RequireComponent(typeof(Tempodevida))]
+[RequireComponent(typeof(ArmMechanic))]
+[RequireComponent(typeof(HUD))]
 public class PlayerController : MonoBehaviour
 {
     const float speed = 5;
@@ -28,11 +31,14 @@ public class PlayerController : MonoBehaviour
     Inputs inputs;
     bool superJumpAcert;
     int printContSuperJump;
+    HUD hud;
 
-    
-
-   
-    
+    const float limiteSuperPulo = 2F;
+    [SerializeField] public bool SuperPulo;
+    [SerializeField] public bool puxarCaixa;
+    [SerializeField] public bool EsticarBraço;
+    [SerializeField] public bool olhoBionico;
+    [SerializeField] public bool OuvidoBionico;
 
     public Transform arm;
     public float stretchDistance = 3f;
@@ -58,14 +64,12 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<PlayerCollider>();
         animator = GetComponent<Animator>();
-
+        hud = GetComponent<HUD>();
         inputs = new Inputs();
 
         inputs.Player.Pular.performed += ctx => Jump();
         inputs.Player.Pular.canceled += ctx => jumping = false;
         inputs.Player.Andar.performed += ctx => direction = ctx.ReadValue<Vector2>();
-        inputs.Player.Agachar.performed += ctx => Agachar();
-        inputs.Player.Agachar.canceled += ctx => agachar = false;
         inputs.Player.SuperPulo.started += ctx => superJumpAcert = true;
         inputs.Player.SuperPulo.canceled += ctx => superJumpAcert = false;
         inputs.Player.puxar.performed += ctx => PickBox(null);
@@ -102,9 +106,6 @@ public class PlayerController : MonoBehaviour
             rb.velocity += Vector2.up * Physics2D.gravity * lowJumpMultiplier * Time.deltaTime;
         }
     }
-    private void Agachar()
-    {
-    }
     private void Jump()
 
     {
@@ -118,14 +119,17 @@ public class PlayerController : MonoBehaviour
         }
              
     }
+
+    
       private void SuperJump()
     {
-        if (superJumpAcert)
+        if (superJumpAcert && SuperPulo)
         {
             contSuperJump += Time.deltaTime;
+            hud.UpdateSuperPuloBar(contSuperJump, limiteSuperPulo);
             printContSuperJump++;
             print(printContSuperJump);
-            if (contSuperJump >= 2)
+            if (contSuperJump >= limiteSuperPulo)
             {
                 float newJumpForce;
                 newJumpForce = jumpForce + 2;
@@ -175,7 +179,7 @@ public class PlayerController : MonoBehaviour
     }
    public void PickBox(Collider2D hitColliders)
     {
-        if (holding == true)
+        if (holding == true && puxarCaixa)
         {
             holding = false;
             boxHolded.transform.parent = null;
