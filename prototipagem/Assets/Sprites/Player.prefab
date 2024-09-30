@@ -338,11 +338,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
   firePoint: {fileID: 0}
-  SuperPulo: 0
-  puxarCaixa: 1
-  "EsticarBra\xE7o": 0
-  olhoBionico: 0
-  OuvidoBionico: 0
   arm: {fileID: 0}
   stretchDistance: 3
   stretchDuration: 2
@@ -410,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ceff861f4c427940b3fb800a5833985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arm: {fileID: 0}
+  arm: {fileID: 2860047391316755203}
   armSpeed: 5
   pullForce: 7
   range: 3
@@ -427,7 +422,7 @@ Animator:
   m_GameObject: {fileID: 8040068063280202567}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0158736733ba85499ee4a81b4b15a8f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

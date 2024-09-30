@@ -34,11 +34,7 @@ public class PlayerController : MonoBehaviour
     HUD hud;
 
     const float limiteSuperPulo = 2F;
-    [SerializeField] public bool SuperPulo;
-    [SerializeField] public bool puxarCaixa;
-    [SerializeField] public bool EsticarBraço;
-    [SerializeField] public bool olhoBionico;
-    [SerializeField] public bool OuvidoBionico;
+ 
 
     public Transform arm;
     public float stretchDistance = 3f;
@@ -123,7 +119,7 @@ public class PlayerController : MonoBehaviour
     
       private void SuperJump()
     {
-        if (superJumpAcert && SuperPulo)
+        if (superJumpAcert && GameManager.instance.SuperPulo)
         {
             contSuperJump += Time.deltaTime;
             hud.UpdateSuperPuloBar(contSuperJump, limiteSuperPulo);
@@ -179,7 +175,7 @@ public class PlayerController : MonoBehaviour
     }
    public void PickBox(Collider2D hitColliders)
     {
-        if (holding == true && puxarCaixa)
+        if (holding == true && GameManager.instance.puxarCaixa)
         {
             holding = false;
             boxHolded.transform.parent = null;

@@ -25,7 +25,7 @@ public class Mecanicas : MonoBehaviour
             Debug.Log(cooldown);
         }
 
-        if (Input.GetKeyDown(KeyCode.K) && cooldown <= 0 && playerController.olhoBionico)
+        if (Input.GetKeyDown(KeyCode.K) && cooldown <= 0 && GameManager.instance.olhoBionico)
         {
 
             StartCoroutine( Olhobionico());
