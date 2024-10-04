@@ -51,8 +51,9 @@ public class PlayerController : MonoBehaviour
     public GameObject local;
     [SerializeField] float radius;
     [SerializeField] LayerMask layerMask;
+    bool isRunning = false;
 
-    
+
 
     private void Awake()
     {
@@ -83,12 +84,18 @@ public class PlayerController : MonoBehaviour
 
     private void Movement()
     {
+        
         if (!dashing)
         {
+            // Atualize a velocidade do rigidbody com base na direção e na velocidade
             rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
+
+            // Verifique se o personagem está correndo (movimento horizontal diferente de zero)
+            isRunning = Mathf.Abs(rb.velocity.x) > 0.1f;
         }
 
-        render.flipX = rb.velocity.x < 0;
+       
+        animator.SetBool("Run", isRunning);
     }
 
     private void SetGravity()
