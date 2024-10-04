@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         {
             initialPosition = GameObject.Find("PlayerPositon").gameObject;
             Instantiate(playerPrefab, new Vector2(initialPosition.transform.position.x, initialPosition.transform.position.y), Quaternion.identity);
-            playerController = GameManager.FindObjectOfType<PlayerController>();
+            playerController = FindObjectOfType<PlayerController>();
             FindBoolPower();
         }   
     }
@@ -61,6 +61,22 @@ public class GameManager : MonoBehaviour
         {
             puxarCaixa = true;
     
+        }
+        if(SceneManager.GetActiveScene().name == "")
+        {
+            SuperPulo = true;
+        }
+        if(SceneManager.GetActiveScene().name == "")
+        {
+            EsticarBraço = true;
+        }
+        if(SceneManager.GetActiveScene().name == "")
+        {
+            olhoBionico = true;
+        }
+        if(SceneManager.GetActiveScene().name == "")
+        {
+            OuvidoBionico = true;
         }
     }
 }
