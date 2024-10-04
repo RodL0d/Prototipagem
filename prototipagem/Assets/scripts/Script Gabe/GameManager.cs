@@ -62,19 +62,19 @@ public class GameManager : MonoBehaviour
             puxarCaixa = true;
     
         }
-        if(SceneManager.GetActiveScene().name == "")
+        if(SceneManager.GetActiveScene().name == "Pre-Fase")
         {
             SuperPulo = true;
         }
-        if(SceneManager.GetActiveScene().name == "")
+        if(SceneManager.GetActiveScene().name == "Pre fase3")
         {
             EsticarBraço = true;
         }
-        if(SceneManager.GetActiveScene().name == "")
+        if(SceneManager.GetActiveScene().name == "pre fase 4")
         {
             olhoBionico = true;
         }
-        if(SceneManager.GetActiveScene().name == "")
+        if(SceneManager.GetActiveScene().name == "pre fase")
         {
             OuvidoBionico = true;
         }
