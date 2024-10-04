@@ -20,6 +20,7 @@ public class ArmMechanic : MonoBehaviour
 
     void Start()
     {
+           
             originalArmPosition = arm.localPosition;
        
     }
