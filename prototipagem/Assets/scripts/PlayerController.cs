@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(PlayerCollider))]
 [RequireComponent(typeof(Tempodevida))]
 [RequireComponent(typeof(ArmMechanic))]
+[RequireComponent(typeof(Mecanicas))]
 [RequireComponent(typeof(HUD))]
 public class PlayerController : MonoBehaviour
 {
