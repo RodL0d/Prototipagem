@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(PlayerCollider))]
 [RequireComponent(typeof(Tempodevida))]
 [RequireComponent(typeof(ArmMechanic))]
+[RequireComponent(typeof(Mecanicas))]
 [RequireComponent(typeof(HUD))]
 public class PlayerController : MonoBehaviour
 {
@@ -34,11 +35,7 @@ public class PlayerController : MonoBehaviour
     HUD hud;
 
     const float limiteSuperPulo = 2F;
-    [SerializeField] public bool SuperPulo;
-    [SerializeField] public bool puxarCaixa;
-    [SerializeField] public bool EsticarBraço;
-    [SerializeField] public bool olhoBionico;
-    [SerializeField] public bool OuvidoBionico;
+ 
 
     public Transform arm;
     public float stretchDistance = 3f;
@@ -55,8 +52,9 @@ public class PlayerController : MonoBehaviour
     public GameObject local;
     [SerializeField] float radius;
     [SerializeField] LayerMask layerMask;
+    bool isRunning = false;
 
-    
+
 
     private void Awake()
     {
@@ -87,12 +85,18 @@ public class PlayerController : MonoBehaviour
 
     private void Movement()
     {
+        
         if (!dashing)
         {
+            // Atualize a velocidade do rigidbody com base na direção e na velocidade
             rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
+
+            // Verifique se o personagem está correndo (movimento horizontal diferente de zero)
+            isRunning = Mathf.Abs(rb.velocity.x) > 0.1f;
         }
 
-        render.flipX = rb.velocity.x < 0;
+       
+        animator.SetBool("Run", isRunning);
     }
 
     private void SetGravity()
@@ -123,7 +127,7 @@ public class PlayerController : MonoBehaviour
     
       private void SuperJump()
     {
-        if (superJumpAcert && SuperPulo)
+        if (superJumpAcert && GameManager.instance.SuperPulo)
         {
             contSuperJump += Time.deltaTime;
             hud.UpdateSuperPuloBar(contSuperJump, limiteSuperPulo);
@@ -179,7 +183,7 @@ public class PlayerController : MonoBehaviour
     }
    public void PickBox(Collider2D hitColliders)
     {
-        if (holding == true && puxarCaixa)
+        if (holding == true && GameManager.instance.puxarCaixa)
         {
             holding = false;
             boxHolded.transform.parent = null;
