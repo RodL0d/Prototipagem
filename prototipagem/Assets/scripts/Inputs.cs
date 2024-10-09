@@ -503,6 +503,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         void OnPuxar(InputAction.CallbackContext context);
         void OnSuperPulo(InputAction.CallbackContext context);
         void OnBraço(InputAction.CallbackContext context);
+        
         void OnEsticarBraço(InputAction.CallbackContext context);
         void OnPassarfase(InputAction.CallbackContext context);
         void OnRetrocederfase(InputAction.CallbackContext context);
