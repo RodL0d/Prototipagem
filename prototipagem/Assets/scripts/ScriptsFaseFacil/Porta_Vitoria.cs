@@ -4,7 +4,7 @@ using UnityEngine;
 
 using UnityEngine.SceneManagement;
 
-public class Bota_Vitoria_FaseFacil : MonoBehaviour
+public class Porta_Vitoria : MonoBehaviour
 {
     public bool pisou;
     [SerializeField] string sceneName;
