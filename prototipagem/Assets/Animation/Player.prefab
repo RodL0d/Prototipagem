@@ -348,7 +348,7 @@ MonoBehaviour:
   radius: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
 --- !u!114 &3227163486639343036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundMask:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 4294967295
   radius: 0.56
   offset: {x: 0, y: 0, z: 0}
 --- !u!114 &5050890174664109451
