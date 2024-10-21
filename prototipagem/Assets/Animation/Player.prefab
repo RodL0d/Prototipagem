@@ -348,7 +348,7 @@ MonoBehaviour:
   radius: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 82
 --- !u!114 &3227163486639343036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 82
   radius: 0.56
   offset: {x: 0, y: 0, z: 0}
 --- !u!114 &5050890174664109451
@@ -443,7 +443,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8040068063280202567}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4548de3934813c3458f93c91bfb3ff96, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
