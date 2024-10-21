@@ -124,30 +124,48 @@ public class PlayerController : MonoBehaviour
              
     }
 
+
+
     
       private void SuperJump()
-    {
-        if (superJumpAcert && GameManager.instance.SuperPulo)
-        {
+    {            
+            if (superJumpAcert && GameManager.instance.SuperPulo)
+            {
+
             contSuperJump += Time.deltaTime;
             hud.UpdateSuperPuloBar(contSuperJump, limiteSuperPulo);
             printContSuperJump++;
             print(printContSuperJump);
-            if (contSuperJump >= limiteSuperPulo)
-            {
-                float newJumpForce;
-                newJumpForce = jumpForce + 2;
 
-                jumping = true;
-                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-                rb.velocity = new Vector2(rb.velocity.x, 0);
-                rb.velocity = new Vector2(rb.velocity.x, newJumpForce);
-                print("Super pulo");
-                contSuperJump = 0;
-                printContSuperJump = 0;
+                if (contSuperJump >= limiteSuperPulo)
+                {
+
+                    float newJumpForce;
+                    newJumpForce = jumpForce + 2;
+
+                    jumping = true;
+                    rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    rb.velocity = new Vector2(rb.velocity.x, 0);
+                    rb.velocity = new Vector2(rb.velocity.x, newJumpForce);
+                    print("Super pulo");
+                    contSuperJump = 0;
+                    printContSuperJump = 0;
+
+                }
+
             }
+        else
+        {
+            contSuperJump = 0;
+            printContSuperJump = 0;
+
+            // Atualiza a barra de progresso na HUD para refletir o reset
+            hud.UpdateSuperPuloBar(contSuperJump, limiteSuperPulo);
+
+            print("Super pulo resetado");
         }
-        
+
+
     }
 
     private IEnumerator Dash()
