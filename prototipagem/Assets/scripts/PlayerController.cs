@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     const float jumpForce = 10;
     const float dashForce = 10;
 
+    VereficaPulo vereficaPulo;
+
     bool jumping, dashing, agachar;
     Vector2 direction;
     [SerializeField] GameObject projectilePrefab;
@@ -58,6 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        vereficaPulo = GetComponentInChildren<VereficaPulo>();
         render = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<PlayerCollider>();
@@ -113,7 +116,7 @@ public class PlayerController : MonoBehaviour
     private void Jump()
 
     {
-        if (playerCollider.OnGround)
+        if (playerCollider.OnGround & vereficaPulo.estaNoChao)
         {
             jumping = true;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
