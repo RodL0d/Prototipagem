@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -54,7 +55,13 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= Initialize;
     }
-    
+    void Exit_Menu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (SceneManager.GetActiveScene().name != "Exit_Menu");
+        }
+    }
     void FindBoolPower()
     {
         if (SceneManager.GetActiveScene().name == "PréFase") // fase
