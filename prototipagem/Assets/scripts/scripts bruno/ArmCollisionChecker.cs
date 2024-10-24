@@ -16,10 +16,13 @@ public class ArmCollisionChecker : MonoBehaviour
 
     private void Update()
     {
+
         Collider2D hitColliders = Physics2D.OverlapCircle(transform.position, radius, layerMask);
         if (armMechanic.isExtending && hitColliders != null)
         {
             playerController.PickBox(hitColliders);
         }
     }
+
+    
 }
