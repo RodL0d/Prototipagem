@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] public bool EsticarBraço;
     [SerializeField] public bool olhoBionico;
     [SerializeField] public bool OuvidoBionico;
+    GameObject exit_Menu;
+
     private void Start()
     {
         SceneManager.sceneLoaded += Initialize;
@@ -59,7 +62,14 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (SceneManager.GetActiveScene().name != "Exit_Menu");
+            if (exit_Menu.activeInHierarchy)
+            {
+                exit_Menu.SetActive(false);
+            }
+            else
+            {
+                exit_Menu.SetActive(true);
+            }         
         }
     }
     void FindBoolPower()
