@@ -535,7 +535,9 @@ MonoBehaviour:
   range: 3
   isFacingRight: 1
   isExtending: 0
-  isPulling: 0
+  isPulling: 1
+  OnBraco: 0
+  BRACO: {fileID: 2525188206455634089}
 --- !u!95 &-6202430048848420553
 Animator:
   serializedVersion: 5

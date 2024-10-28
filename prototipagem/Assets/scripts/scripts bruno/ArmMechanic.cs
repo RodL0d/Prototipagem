@@ -15,6 +15,8 @@ public class ArmMechanic : MonoBehaviour
         private GameObject grabbedObject = null;
         private Vector3 originalArmPosition;
         private Vector3 armDirection;
+       public  bool OnBraco;
+      [SerializeField]public SpriteRenderer BRACO;
 
     PlayerController playerController;
 
@@ -22,7 +24,7 @@ public class ArmMechanic : MonoBehaviour
     {
            
             originalArmPosition = arm.localPosition;
-       
+        ResetArm();
     }
 
         void Update()
@@ -41,6 +43,8 @@ public class ArmMechanic : MonoBehaviour
             {
                 SetArmDirection();
                 isExtending = true;
+                BRACO.enabled = true;
+            
             }
 
             if (isExtending)
@@ -87,13 +91,15 @@ public class ArmMechanic : MonoBehaviour
         {
             grabbedObject = other.gameObject;
             isExtending = false;
-            isPulling = true;
+        isPulling = true;
         }
 
         void ResetArm()
         {
             arm.localPosition = originalArmPosition;
             isExtending = false;
+        BRACO.enabled = false;
+
             isPulling = false;
             if (grabbedObject != null)
         {
