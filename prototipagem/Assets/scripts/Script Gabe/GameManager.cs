@@ -71,11 +71,13 @@ public class GameManager : MonoBehaviour
             if (exit_Menu.activeInHierarchy)
             {
                 exit_Menu.SetActive(false);
+                Time.timeScale = 1;
             }
             else
             {
                 exit_Menu.SetActive(true);
-            }         
+                Time.timeScale = 0;
+            }
         }
     }
     void FindBoolPower()
