@@ -35,10 +35,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] public bool olhoBionico;
     [SerializeField] public bool OuvidoBionico;
     GameObject exit_Menu;
-
+    private void Update()
+    {
+        Exit_Menu();
+    }
     private void Start()
     {
         SceneManager.sceneLoaded += Initialize;
+        
     }
     void Initialize()
     {
@@ -48,6 +52,8 @@ public class GameManager : MonoBehaviour
             Instantiate(playerPrefab, new Vector2(initialPosition.transform.position.x, initialPosition.transform.position.y), Quaternion.identity);
             playerController = FindObjectOfType<PlayerController>();
             FindBoolPower();
+            exit_Menu = GameObject.Find("TeladePause");
+            exit_Menu.SetActive(false);
         }   
     }
     private void Initialize(Scene scene, LoadSceneMode mode)
