@@ -1484,6 +1484,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 8040068063280202567, guid: e42a093c1aa2e0b4da2ce46cbbde9a30, type: 3}
+  initialPosition: {fileID: 0}
+  playerController: {fileID: 0}
+  SuperPulo: 0
+  puxarCaixa: 0
+  "EsticarBra\xE7o": 0
+  olhoBionico: 0
+  OuvidoBionico: 0
 --- !u!4 &824431900
 Transform:
   m_ObjectHideFlags: 0
