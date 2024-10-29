@@ -19,10 +19,11 @@ public class ArmMechanic : MonoBehaviour
       [SerializeField]public SpriteRenderer BRACO;
 
     PlayerController playerController;
+    GameManager gameManager;
 
     void Start()
     {
-           
+            gameManager = GetComponent<GameManager>();
             originalArmPosition = arm.localPosition;
         ResetArm();
     }
@@ -39,7 +40,7 @@ public class ArmMechanic : MonoBehaviour
             isFacingRight = true;
             transform.localScale = new Vector3(1, 1, 1); // Vira o player para a direita
             }
-            if (Input.GetKeyDown(KeyCode.J) && !isExtending && !isPulling )
+            if (Input.GetKeyDown(KeyCode.J) && !isExtending && !isPulling && GameManager.instance.esticarBraço)
             {
                 SetArmDirection();
                 isExtending = true;
