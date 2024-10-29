@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(PlayerCollider))]
@@ -14,6 +13,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(HUD))]
 public class PlayerController : MonoBehaviour
 {
+    // Constantes e variáveis (não foram alteradas)
     const float speed = 5;
     const float fallMultiplier = 2.5f;
     const float lowJumpMultiplier = 2f;
@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
     const float dashForce = 10;
 
     VereficaPulo vereficaPulo;
-
     bool jumping, dashing, agachar;
     Vector2 direction;
     [SerializeField] GameObject projectilePrefab;
@@ -37,8 +36,8 @@ public class PlayerController : MonoBehaviour
     HUD hud;
 
     const float limiteSuperPulo = 2F;
- 
 
+    // Outras variáveis e objetos (não foram alterados)
     public Transform arm;
     public float stretchDistance = 3f;
     public float stretchDuration = 2f;
@@ -46,7 +45,6 @@ public class PlayerController : MonoBehaviour
     private bool isStretching = false;
     private Transform targetBox;
 
-   
     GameObject boxHolded;
     public bool puxouCaixa;
     [SerializeField] Vector2 point;
@@ -55,11 +53,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float radius;
     [SerializeField] LayerMask layerMask;
     bool isRunning = false;
-
-
+    bool isJumping = false;
 
     private void Awake()
     {
+        // Inicialização de componentes e inputs
         vereficaPulo = GetComponentInChildren<VereficaPulo>();
         render = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -74,9 +72,8 @@ public class PlayerController : MonoBehaviour
         inputs.Player.SuperPulo.started += ctx => superJumpAcert = true;
         inputs.Player.SuperPulo.canceled += ctx => superJumpAcert = false;
         inputs.Player.puxar.performed += ctx => PickBox(null);
-
-        
     }
+
     private void Update()
     {
         SetGravity();
@@ -84,21 +81,31 @@ public class PlayerController : MonoBehaviour
         SuperJump();
         Passarfase();
         RetrocederFase();
+
+        bool falling = IsFalling();
+        animator.SetBool("Falling", falling);
+
+        // Verifica se o player está caindo e imprime o resultado no console
+        if (IsFalling())
+        {
+            Debug.Log("O player está caindo.");
+        }
+
+        if (playerCollider.OnGround && vereficaPulo.estaNoChao)
+        {
+            jumping = false;
+            animator.SetBool("Jump", false);
+        }
     }
 
     private void Movement()
     {
-        
         if (!dashing)
         {
-            // Atualize a velocidade do rigidbody com base na direção e na velocidade
             rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
-
-            // Verifique se o personagem está correndo (movimento horizontal diferente de zero)
             isRunning = Mathf.Abs(rb.velocity.x) > 0.1f;
         }
 
-       
         animator.SetBool("Run", isRunning);
     }
 
@@ -113,62 +120,57 @@ public class PlayerController : MonoBehaviour
             rb.velocity += Vector2.up * Physics2D.gravity * lowJumpMultiplier * Time.deltaTime;
         }
     }
-    private void Jump()
 
+    private bool IsFalling()
+    {
+        // Retorna true se a velocidade no eixo Y for menor que 0
+        return rb.velocity.y < 0;
+       
+    }
+
+    private void Jump()
     {
         if (playerCollider.OnGround & vereficaPulo.estaNoChao)
         {
-            jumping = true;
+            jumping = true;       
+            animator.SetBool("Jump", true);
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             print("Pulo normal");
         }
-             
-    }
-
-
 
     
-      private void SuperJump()
-    {            
-            if (superJumpAcert && GameManager.instance.SuperPulo)
-            {
+    }
 
+    private void SuperJump()
+    {
+        if (superJumpAcert && GameManager.instance.SuperPulo)
+        {
             contSuperJump += Time.deltaTime;
             hud.UpdateSuperPuloBar(contSuperJump, limiteSuperPulo);
             printContSuperJump++;
             print(printContSuperJump);
 
-                if (contSuperJump >= limiteSuperPulo)
-                {
-
-                    float newJumpForce;
-                    newJumpForce = jumpForce + 2;
-
-                    jumping = true;
-                    rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-                    rb.velocity = new Vector2(rb.velocity.x, 0);
-                    rb.velocity = new Vector2(rb.velocity.x, newJumpForce);
-                    print("Super pulo");
-                    contSuperJump = 0;
-                    printContSuperJump = 0;
-
-                }
-
+            if (contSuperJump >= limiteSuperPulo)
+            {
+                float newJumpForce = jumpForce + 2;
+                jumping = true;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+                rb.velocity = new Vector2(rb.velocity.x, newJumpForce);
+                print("Super pulo");
+                contSuperJump = 0;
+                printContSuperJump = 0;
             }
+        }
         else
         {
             contSuperJump = 0;
             printContSuperJump = 0;
-
-            // Atualiza a barra de progresso na HUD para refletir o reset
             hud.UpdateSuperPuloBar(contSuperJump, limiteSuperPulo);
-
             print("Super pulo resetado");
         }
-
-
     }
 
     private IEnumerator Dash()
@@ -186,7 +188,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     private void Shoot()
     {
         Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
@@ -195,14 +196,14 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         inputs.Enable();
-        
     }
 
     private void OnDisable()
     {
         inputs.Disable();
     }
-   public void PickBox(Collider2D hitColliders)
+
+    public void PickBox(Collider2D hitColliders)
     {
         if (holding == true && GameManager.instance.puxarCaixa)
         {
@@ -219,7 +220,6 @@ public class PlayerController : MonoBehaviour
         }
         if (hitColliders != null)
         {
-
             if (hitColliders.GetComponent<Rigidbody2D>())
             {
                 boxHolded = hitColliders.gameObject;
@@ -232,23 +232,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //temporario
+    // Temporário
     private void Passarfase()
     {
         int index = SceneManager.GetActiveScene().buildIndex;
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             SceneManager.LoadScene(index + 1);
-
         }
-    } 
+    }
+
     private void RetrocederFase()
     {
         int index = SceneManager.GetActiveScene().buildIndex;
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             SceneManager.LoadScene(index - 1);
-
         }
     }
 }
