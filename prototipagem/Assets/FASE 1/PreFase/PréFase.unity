@@ -4866,13 +4866,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Caixa
       objectReference: {fileID: 0}
+    - target: {fileID: 4531674802088351486, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878255060670870424, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.45105508
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878255060670870424, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.44299304
+      objectReference: {fileID: 0}
     - target: {fileID: 7878255060670870424, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.753108
+      value: 5.9442
       objectReference: {fileID: 0}
     - target: {fileID: 7878255060670870424, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.7735972
+      value: -1.5953
       objectReference: {fileID: 0}
     - target: {fileID: 7878255060670870424, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
       propertyPath: m_LocalPosition.z
