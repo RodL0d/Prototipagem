@@ -31,10 +31,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] PlayerController playerController;
     [SerializeField] public bool SuperPulo;
     [SerializeField] public bool puxarCaixa;
-    [SerializeField] public bool EsticarBraço;
+    [SerializeField] public bool esticarBraço;
     [SerializeField] public bool olhoBionico;
     [SerializeField] public bool OuvidoBionico;
     GameObject exit_Menu;
+
+    public bool EsticarBraço { get => esticarBraço; set => esticarBraço = value; }
+
     private void Update()
     {
         Exit_Menu();
@@ -93,7 +96,7 @@ public class GameManager : MonoBehaviour
         }
         if(SceneManager.GetActiveScene().name == "Pre fase3")
         {
-            EsticarBraço = true;
+            esticarBraço = true;
         }
         if(SceneManager.GetActiveScene().name == "pre fase 4")
         {
