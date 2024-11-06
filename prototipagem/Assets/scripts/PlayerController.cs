@@ -13,15 +13,14 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(HUD))]
 public class PlayerController : MonoBehaviour
 {
-    // Constantes e variáveis (não foram alteradas)
     const float speed = 5;
     const float fallMultiplier = 2.5f;
     const float lowJumpMultiplier = 2f;
     const float jumpForce = 10;
     const float dashForce = 10;
 
-    VereficaPulo vereficaPulo;
-    bool jumping, dashing, agachar;
+    VerificaPulo verificaPulo;
+    bool jumping, dashing, crouching;
     Vector2 direction;
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform firePoint;
@@ -31,13 +30,12 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     float contSuperJump;
     Inputs inputs;
-    bool superJumpAcert;
+    bool superJumpActive;
     int printContSuperJump;
     HUD hud;
 
     const float limiteSuperPulo = 2F;
 
-    // Outras variáveis e objetos (não foram alterados)
     public Transform arm;
     public float stretchDistance = 3f;
     public float stretchDuration = 2f;
@@ -45,7 +43,7 @@ public class PlayerController : MonoBehaviour
     private bool isStretching = false;
     private Transform targetBox;
 
-    GameObject boxHolded;
+    GameObject boxHeld;
     public bool puxouCaixa;
     [SerializeField] Vector2 point;
     bool holding;
@@ -53,12 +51,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float radius;
     [SerializeField] LayerMask layerMask;
     bool isRunning = false;
-    bool isJumping = false;
+    bool falling = false;
 
     private void Awake()
     {
-        // Inicialização de componentes e inputs
-        vereficaPulo = GetComponentInChildren<VereficaPulo>();
+        verificaPulo = GetComponentInChildren<VerificaPulo>();
         render = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<PlayerCollider>();
@@ -69,8 +66,8 @@ public class PlayerController : MonoBehaviour
         inputs.Player.Pular.performed += ctx => Jump();
         inputs.Player.Pular.canceled += ctx => jumping = false;
         inputs.Player.Andar.performed += ctx => direction = ctx.ReadValue<Vector2>();
-        inputs.Player.SuperPulo.started += ctx => superJumpAcert = true;
-        inputs.Player.SuperPulo.canceled += ctx => superJumpAcert = false;
+        inputs.Player.SuperPulo.started += ctx => superJumpActive = true;
+        inputs.Player.SuperPulo.canceled += ctx => superJumpActive = false;
         inputs.Player.puxar.performed += ctx => PickBox(null);
     }
 
@@ -82,18 +79,12 @@ public class PlayerController : MonoBehaviour
         Passarfase();
         RetrocederFase();
 
-        bool falling = IsFalling();
+        // Atualiza o estado de queda e aplica na animação
+        falling = IsFalling();
         animator.SetBool("Falling", falling);
-
-        // Verifica se o player está caindo e imprime o resultado no console
-        if (IsFalling())
+        // Reseta a animação de pulo quando volta ao chão
+        if (playerCollider.OnGround && rb.velocity.y <= 0)
         {
-            Debug.Log("O player está caindo.");
-        }
-
-        if (playerCollider.OnGround && vereficaPulo.estaNoChao)
-        {
-            jumping = false;
             animator.SetBool("Jump", false);
         }
     }
@@ -105,7 +96,6 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
             isRunning = Mathf.Abs(rb.velocity.x) > 0.1f;
         }
-
         animator.SetBool("Run", isRunning);
     }
 
@@ -113,53 +103,53 @@ public class PlayerController : MonoBehaviour
     {
         if (rb.velocity.y < 0)
         {
-            rb.velocity += Vector2.up * Physics2D.gravity * fallMultiplier * Time.deltaTime;
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
         else if (rb.velocity.y > 0 && !jumping)
         {
-            rb.velocity += Vector2.up * Physics2D.gravity * lowJumpMultiplier * Time.deltaTime;
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
         }
     }
 
     private bool IsFalling()
     {
-        // Retorna true se a velocidade no eixo Y for menor que 0
         return rb.velocity.y < 0;
-       
+        
     }
 
     private void Jump()
     {
-        if (playerCollider.OnGround & vereficaPulo.estaNoChao)
+        // Verifica se o personagem está no chão e permite o pulo
+        if (playerCollider.OnGround && verificaPulo.estaNoChao)
         {
-            jumping = true;       
-            animator.SetBool("Jump", true);
+            jumping = true;
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            print("Pulo normal");
-        }
+            falling = false;
 
-    
+            // Ativa a animação de pulo
+            animator.SetBool("Jump", jumping);
+        }
+        
     }
 
     private void SuperJump()
     {
-        if (superJumpAcert && GameManager.instance.SuperPulo)
+        if (superJumpActive && GameManager.instance.SuperPulo)
         {
             contSuperJump += Time.deltaTime;
             hud.UpdateSuperPuloBar(contSuperJump, limiteSuperPulo);
             printContSuperJump++;
-            print(printContSuperJump);
+            Debug.Log(printContSuperJump);
 
             if (contSuperJump >= limiteSuperPulo)
             {
                 float newJumpForce = jumpForce + 2;
                 jumping = true;
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-                rb.velocity = new Vector2(rb.velocity.x, 0);
                 rb.velocity = new Vector2(rb.velocity.x, newJumpForce);
-                print("Super pulo");
+                animator.SetBool("Jump", jumping); // Animação de super pulo ativada
+                Debug.Log("Super pulo ativado");
                 contSuperJump = 0;
                 printContSuperJump = 0;
             }
@@ -169,13 +159,13 @@ public class PlayerController : MonoBehaviour
             contSuperJump = 0;
             printContSuperJump = 0;
             hud.UpdateSuperPuloBar(contSuperJump, limiteSuperPulo);
-            print("Super pulo resetado");
+            Debug.Log("Super pulo resetado");
         }
     }
 
     private IEnumerator Dash()
     {
-        if (!dashing)
+        if (!dashing && direction.x != 0)
         {
             animator.SetTrigger("Dashing");
             dashing = true;
@@ -205,34 +195,30 @@ public class PlayerController : MonoBehaviour
 
     public void PickBox(Collider2D hitColliders)
     {
-        if (holding == true && GameManager.instance.puxarCaixa)
+        if (holding && GameManager.instance.puxarCaixa)
         {
             holding = false;
-            boxHolded.transform.parent = null;
-            boxHolded.GetComponent<BoxCollider2D>().isTrigger = false;
-            boxHolded.GetComponent<Rigidbody2D>().isKinematic = false;
-            boxHolded = null;
+            boxHeld.transform.parent = null;
+            boxHeld.GetComponent<BoxCollider2D>().isTrigger = false;
+            boxHeld.GetComponent<Rigidbody2D>().isKinematic = false;
+            boxHeld = null;
             return;
         }
         if (hitColliders == null)
         {
             hitColliders = Physics2D.OverlapCircle(transform.position, radius, layerMask);
         }
-        if (hitColliders != null)
+        if (hitColliders != null && hitColliders.GetComponent<Rigidbody2D>())
         {
-            if (hitColliders.GetComponent<Rigidbody2D>())
-            {
-                boxHolded = hitColliders.gameObject;
-                boxHolded.GetComponent<BoxCollider2D>().isTrigger = true;
-                boxHolded.GetComponent<Rigidbody2D>().isKinematic = true;
-                boxHolded.transform.position = transform.position + new Vector3(-1, 0, 0);
-                boxHolded.transform.parent = transform;
-                holding = true;
-            }
+            boxHeld = hitColliders.gameObject;
+            boxHeld.GetComponent<BoxCollider2D>().isTrigger = true;
+            boxHeld.GetComponent<Rigidbody2D>().isKinematic = true;
+            boxHeld.transform.position = transform.position + new Vector3(-1, 0, 0);
+            boxHeld.transform.parent = transform;
+            holding = true;
         }
     }
 
-    // Temporário
     private void Passarfase()
     {
         int index = SceneManager.GetActiveScene().buildIndex;
