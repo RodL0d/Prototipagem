@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
             falling = false;
 
             // Ativa a animação de pulo
-            animator.SetBool("Jump", jumping);
+            animator.SetBool("Jump", true);
         }
         
     }
@@ -137,21 +137,26 @@ public class PlayerController : MonoBehaviour
     {
         if (superJumpActive && GameManager.instance.SuperPulo)
         {
+            
             contSuperJump += Time.deltaTime;
             hud.UpdateSuperPuloBar(contSuperJump, limiteSuperPulo);
             printContSuperJump++;
             Debug.Log(printContSuperJump);
 
+            animator.SetBool("StarSuperJump", true);
+
             if (contSuperJump >= limiteSuperPulo)
             {
+                animator.SetBool("StarSuperJump", false);
                 float newJumpForce = jumpForce + 2;
                 jumping = true;
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 rb.velocity = new Vector2(rb.velocity.x, newJumpForce);
-                animator.SetBool("Jump", jumping); // Animação de super pulo ativada
+                animator.SetBool("SuperJump", true);
                 Debug.Log("Super pulo ativado");
                 contSuperJump = 0;
                 printContSuperJump = 0;
+                
             }
         }
         else
@@ -160,7 +165,9 @@ public class PlayerController : MonoBehaviour
             printContSuperJump = 0;
             hud.UpdateSuperPuloBar(contSuperJump, limiteSuperPulo);
             Debug.Log("Super pulo resetado");
-        }
+            animator.SetBool("SuperJump", false);
+            animator.SetBool("StarSuperJump", false);
+        }        
     }
 
     private IEnumerator Dash()

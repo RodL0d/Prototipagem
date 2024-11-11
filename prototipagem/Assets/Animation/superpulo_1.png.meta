@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 506969835b2dc9b4286f1de0317a7483
+guid: ffe6848de9d4f3647a7ea452f76bb5ef
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 750
+  spritePixelsToUnits: 960
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,253 +110,274 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "bra\xE7o mecanico_0"
+      name: superpulo_1_0
       rect:
         serializedVersion: 2
-        x: 44
+        x: 256
         y: 0
-        width: 308
-        height: 706
+        width: 347
+        height: 924
       alignment: 9
-      pivot: {x: 0.64550793, y: 0.015551168}
+      pivot: {x: 0.595285, y: 0.012212371}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ee67a57343ddcf4ab90b1a7e5efd6d0
-      internalID: -1683116770
+      spriteID: 06e3b72b2d998f7468ed2f3ca6e9e2e1
+      internalID: 12012278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "bra\xE7o mecanico_1"
+      name: superpulo_1_1
       rect:
         serializedVersion: 2
-        x: 1274
+        x: 1255
         y: 0
-        width: 323
-        height: 721
+        width: 311
+        height: 924
       alignment: 9
-      pivot: {x: 0.66796196, y: 0.0027292105}
+      pivot: {x: 0.5559545, y: 0.01597907}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f273484b87f23141aba878da4269148
-      internalID: -1524456871
+      spriteID: 951906aeb090427419aab745cb166b40
+      internalID: 1866967239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "bra\xE7o mecanico_2"
+      name: superpulo_1_2
       rect:
         serializedVersion: 2
-        x: 2512
-        y: 0
-        width: 337
-        height: 706
+        x: 2196
+        y: 2
+        width: 353
+        height: 924
       alignment: 9
-      pivot: {x: 0.5769927, y: 0.008869113}
+      pivot: {x: 0.5098583, y: 0.0084456885}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85f857a4921df1247a138d838dc17ddb
-      internalID: 652845866
+      spriteID: ba0a2a34e4026a14dbc2cf9cb7203d2c
+      internalID: -338149397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "bra\xE7o mecanico_3"
+      name: superpulo_1_3
       rect:
         serializedVersion: 2
-        x: 3744
+        x: 3132
         y: 0
-        width: 359
-        height: 676
+        width: 433
+        height: 887
       alignment: 9
-      pivot: {x: 0.56570375, y: 0.0045198756}
+      pivot: {x: 0.51205593, y: 0.009522193}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 527f02c0d54fbd24a801460005246f3a
-      internalID: 185092766
+      spriteID: be0d8a395aca89447a851b865f34d976
+      internalID: 750879700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "bra\xE7o mecanico_4"
+      name: superpulo_1_4
       rect:
         serializedVersion: 2
-        x: 5039
+        x: 4095
         y: 0
-        width: 307
-        height: 691
+        width: 433
+        height: 784
       alignment: 9
-      pivot: {x: 0.56146616, y: 0.001621163}
+      pivot: {x: 0.5080369, y: 0.005015405}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4e9b7e7f96ba2b43a1f8963378edd49
-      internalID: 1560018439
+      spriteID: 437883a9eef0d3e41a4a3698d01a74ae
+      internalID: -1883098486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "bra\xE7o mecanico_5"
+      name: superpulo_1_5
       rect:
         serializedVersion: 2
-        x: 6276
+        x: 5033
         y: 0
-        width: 702
-        height: 678
+        width: 470
+        height: 747
       alignment: 9
-      pivot: {x: 0.2647952, y: 0.019897483}
+      pivot: {x: 0.5148095, y: -0.0031946437}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcec316f28e76564db58932fbcef8b58
-      internalID: 809726177
+      spriteID: 091f7814816648c439de4df9e0c8971a
+      internalID: -1322239119
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "bra\xE7o mecanico_9"
+      name: superpulo_1_6
       rect:
         serializedVersion: 2
-        x: 7543
+        x: 6015
         y: 0
-        width: 1195
-        height: 652
+        width: 432
+        height: 784
       alignment: 9
-      pivot: {x: 0.12299212, y: 0.007987791}
+      pivot: {x: 0.52014047, y: 0.0072350674}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d0b7859c16b6e645b2d969dff4f71da
-      internalID: -1910264369
+      spriteID: 1aa78b5535e6a2c4ba82034884ddb6e5
+      internalID: -825725919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "bra\xE7o mecanico_11"
+      name: superpulo_1_7
       rect:
         serializedVersion: 2
-        x: 8803
+        x: 6977
         y: 0
-        width: 975
-        height: 657
+        width: 427
+        height: 845
       alignment: 9
-      pivot: {x: 0.16130508, y: 0.008141746}
+      pivot: {x: 0.48777238, y: 0.013975441}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a7e347c2445d0948b66ec6dd8763f57
-      internalID: 539033256
+      spriteID: 14d89fab147d1f14194432544e5b2776
+      internalID: -331446195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "bra\xE7o mecanico_19"
+      name: superpulo_1_9
       rect:
         serializedVersion: 2
-        x: 10041
+        x: 7912
         y: 0
-        width: 307
-        height: 691
+        width: 496
+        height: 924
       alignment: 9
-      pivot: {x: 0.56914824, y: 0.008448268}
+      pivot: {x: 0.48596486, y: 0.01786242}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53cce1f969d698a4080591079386d61d
-      internalID: -1200010362
+      spriteID: e74662e251e3b21439794425ef057e3d
+      internalID: 1906781962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "bra\xE7o mecanico_20"
+      name: superpulo_1_11
       rect:
         serializedVersion: 2
-        x: 11257
+        x: 8784
         y: 0
-        width: 344
-        height: 706
+        width: 593
+        height: 924
       alignment: 9
-      pivot: {x: 0.61656576, y: 0.005528087}
+      pivot: {x: 0.5469524, y: 0.008445672}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 940d1cf3cdb60a5479655e1a482cf2a9
-      internalID: -1693751458
+      spriteID: e303260b6b5fea04295e837a70a9c73d
+      internalID: 262772701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "bra\xE7o mecanico_21"
+      name: superpulo_1_13
       rect:
         serializedVersion: 2
-        x: 12524
-        y: 0
-        width: 322
-        height: 721
+        x: 9896
+        y: 55
+        width: 329
+        height: 893
       alignment: 9
-      pivot: {x: 0.7124327, y: 0.012543766}
+      pivot: {x: 0.49999702, y: 0.0050227772}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3197bdba40965c54ab5334b108b40910
-      internalID: -527599607
+      spriteID: aa483db2cb6051d4da68601ff6fa4356
+      internalID: 2095784128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "bra\xE7o mecanico_22"
+      name: superpulo_1_14
       rect:
         serializedVersion: 2
-        x: 13791
-        y: 0
-        width: 307
-        height: 721
+        x: 10877
+        y: 12
+        width: 311
+        height: 893
       alignment: 9
-      pivot: {x: 0.6767133, y: 0.0027292105}
+      pivot: {x: 0.45544866, y: 0.0074169785}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7a25e6becf4bb84f814e19ee41ee59a
-      internalID: -1056725867
+      spriteID: 3a05262153b42e649b9389f7019bf5f6
+      internalID: 354229959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: superpulo_1_15
+      rect:
+        serializedVersion: 2
+        x: 11816
+        y: 55
+        width: 329
+        height: 893
+      alignment: 9
+      pivot: {x: 0.4947343, y: 0.009356209}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d6992e43efeca41a1374d4a32c9e5a
+      internalID: -239407722
       vertices: []
       indices: 
       edges: []
@@ -372,29 +393,32 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "bra\xE7o mecanico_0": -1683116770
-      "bra\xE7o mecanico_1": -1524456871
-      "bra\xE7o mecanico_10": -1944787200
-      "bra\xE7o mecanico_11": 539033256
-      "bra\xE7o mecanico_12": 2144102086
-      "bra\xE7o mecanico_13": 498295994
-      "bra\xE7o mecanico_14": 113863892
-      "bra\xE7o mecanico_15": -945973327
-      "bra\xE7o mecanico_16": -219869660
-      "bra\xE7o mecanico_17": 1538419885
-      "bra\xE7o mecanico_18": 335642664
-      "bra\xE7o mecanico_19": -1200010362
-      "bra\xE7o mecanico_2": 652845866
-      "bra\xE7o mecanico_20": -1693751458
-      "bra\xE7o mecanico_21": -527599607
-      "bra\xE7o mecanico_22": -1056725867
-      "bra\xE7o mecanico_3": 185092766
-      "bra\xE7o mecanico_4": 1560018439
-      "bra\xE7o mecanico_5": 809726177
-      "bra\xE7o mecanico_6": -1525216285
-      "bra\xE7o mecanico_7": 1200601301
-      "bra\xE7o mecanico_8": -48942099
-      "bra\xE7o mecanico_9": -1910264369
+      superpulo_1_0: 12012278
+      superpulo_1_1: 1866967239
+      superpulo_1_10: 1464600584
+      superpulo_1_11: 262772701
+      superpulo_1_12: 1470259972
+      superpulo_1_13: 2095784128
+      superpulo_1_14: 354229959
+      superpulo_1_15: -239407722
+      superpulo_1_16: -1893454004
+      superpulo_1_17: -1741213956
+      superpulo_1_18: 1082065548
+      superpulo_1_19: -1847243735
+      superpulo_1_2: -338149397
+      superpulo_1_20: -624051917
+      superpulo_1_21: 505145183
+      superpulo_1_22: -1388918568
+      superpulo_1_23: -931641696
+      superpulo_1_24: -1198886636
+      superpulo_1_25: -112020769
+      superpulo_1_3: 750879700
+      superpulo_1_4: -1883098486
+      superpulo_1_5: -1322239119
+      superpulo_1_6: -825725919
+      superpulo_1_7: -331446195
+      superpulo_1_8: -1378057940
+      superpulo_1_9: 1906781962
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
