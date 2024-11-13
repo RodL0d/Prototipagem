@@ -143,11 +143,11 @@ public class PlayerController : MonoBehaviour
             printContSuperJump++;
             Debug.Log(printContSuperJump);
 
-            animator.SetBool("StarSuperJump", true);
+            animator.SetBool("StartSuperJump", true);
 
             if (contSuperJump >= limiteSuperPulo)
             {
-                animator.SetBool("StarSuperJump", false);
+                animator.SetBool("StartSuperJump", false);
                 float newJumpForce = jumpForce + 2;
                 jumping = true;
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
             hud.UpdateSuperPuloBar(contSuperJump, limiteSuperPulo);
             Debug.Log("Super pulo resetado");
             animator.SetBool("SuperJump", false);
-            animator.SetBool("StarSuperJump", false);
+            animator.SetBool("StartSuperJump", false);
         }        
     }
 
