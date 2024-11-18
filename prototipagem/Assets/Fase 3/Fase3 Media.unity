@@ -197,6 +197,10 @@ PrefabInstance:
       propertyPath: botao
       value: 
       objectReference: {fileID: 929939326}
+    - target: {fileID: 1041953640941160316, guid: 8070493146357a543b0ec9c6b80bb7a0, type: 3}
+      propertyPath: velocidade
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2538734001082157573, guid: 8070493146357a543b0ec9c6b80bb7a0, type: 3}
       propertyPath: m_Name
       value: Barreira
@@ -5087,7 +5091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6920659111090821789, guid: e8250b0ebdae49a49bd9939886790ccc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.8254786
+      value: 3.47
       objectReference: {fileID: 0}
     - target: {fileID: 6920659111090821789, guid: e8250b0ebdae49a49bd9939886790ccc, type: 3}
       propertyPath: m_LocalPosition.y

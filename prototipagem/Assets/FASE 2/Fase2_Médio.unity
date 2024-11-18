@@ -351,63 +351,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50cce4e3f5fa03d499c368d18be28f2a, type: 3}
---- !u!1001 &518059499
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4531674802088351486, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
-      propertyPath: m_Name
-      value: Caixa (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878255060670870424, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878255060670870424, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.44
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878255060670870424, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878255060670870424, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878255060670870424, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878255060670870424, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878255060670870424, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878255060670870424, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878255060670870424, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878255060670870424, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b7c4420891dac1a448bf7d2eaac8e7c0, type: 3}
 --- !u!1001 &698213688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -416,6 +359,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1041953640941160316, guid: 8070493146357a543b0ec9c6b80bb7a0, type: 3}
+      propertyPath: botao
+      value: 
+      objectReference: {fileID: 783304921}
     - target: {fileID: 2538734001082157573, guid: 8070493146357a543b0ec9c6b80bb7a0, type: 3}
       propertyPath: m_Name
       value: Barreira
@@ -669,6 +616,17 @@ MonoBehaviour:
   velocidade: 2
   maxposicao: 5
   barreira: {fileID: 698213689}
+--- !u!114 &783304921 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6207039900896606825, guid: e8250b0ebdae49a49bd9939886790ccc, type: 3}
+  m_PrefabInstance: {fileID: 783304918}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783304919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97569e24205dc4498984024fd560d8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &842725401
 GameObject:
   m_ObjectHideFlags: 0
@@ -4850,7 +4808,6 @@ SceneRoots:
   - {fileID: 698213688}
   - {fileID: 1174471162}
   - {fileID: 842725403}
-  - {fileID: 518059499}
   - {fileID: 104957313}
   - {fileID: 783304918}
   - {fileID: 741769723}
