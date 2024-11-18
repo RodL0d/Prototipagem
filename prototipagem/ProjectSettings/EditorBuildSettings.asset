@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Assets Menu/Menu.unity
+    path: Assets/Menu/Menu.unity
     guid: ca870a1ccea116341b008c658e619c7f
   - enabled: 1
     path: "Assets/FASE 1/PreFase/Pr\xE9Fase.unity"
@@ -60,8 +60,8 @@ EditorBuildSettings:
     path: Assets/FASE 5/Pre Fase.unity
     guid: 054c9d98dbce27a4a9a221fac68fce30
   - enabled: 1
-    path: Assets/FASE 5/Fase Facil.unity
-    guid: 6537b1339446ef04d9fad1002172343b
+    path: "Assets/FASE 5/Fase F\xE1cil.unity"
+    guid: aab8682c48286e840b40d65fc075d8ba
   - enabled: 1
     path: Assets/FASE 5/Fase Media.unity
     guid: faa0442718914f04783a47ae8937264a

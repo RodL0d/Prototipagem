@@ -11,6 +11,7 @@ TagManager:
   - Sons
   - Encaixe
   - Pickup
+  - vereficaChao
   layers:
   - Default
   - TransparentFX
