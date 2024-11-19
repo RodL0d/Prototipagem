@@ -323,7 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mask:
     serializedVersion: 2
-    m_Bits: 16
+    m_Bits: 82
   estaNoChao: 0
 --- !u!1 &8040068063280202567
 GameObject:
