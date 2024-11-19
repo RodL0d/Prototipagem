@@ -23,6 +23,7 @@ public class ArmMechanic : MonoBehaviour
 
     void Start()
     {
+        playerController = GetComponent<PlayerController>();
             gameManager = GetComponent<GameManager>();
             originalArmPosition = arm.localPosition;
         ResetArm();
@@ -30,17 +31,8 @@ public class ArmMechanic : MonoBehaviour
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-            isFacingRight = false;
-            transform.localScale = new Vector3(-1, 1, 1); // Vira o player para a esquerda
-            }
-            else if (Input.GetKeyDown(KeyCode.D))
-            {
-            isFacingRight = true;
-            transform.localScale = new Vector3(1, 1, 1); // Vira o player para a direita
-            }
-            if (Input.GetKeyDown(KeyCode.J) && !isExtending && !isPulling && GameManager.instance.esticarBraço)
+        isFacingRight = transform.localScale.x > 0;
+            if (Input.GetKeyDown(KeyCode.J) && !isExtending && GameManager.instance.esticarBraço && !playerController.Holding)
             {
                 SetArmDirection();
                 isExtending = true;
@@ -51,11 +43,6 @@ public class ArmMechanic : MonoBehaviour
             if (isExtending)
             {
                 ExtendArm();
-            }
-
-            if (isPulling && grabbedObject != null)
-            {
-                PullObject();
             }
          }
 
@@ -73,50 +60,12 @@ public class ArmMechanic : MonoBehaviour
             {
                 ResetArm();
             }
-        }
+        }   
 
-        public void PullObject()
-        {
-            Vector3 directionToPlayer = (transform.position - grabbedObject.transform.position).normalized;
-            grabbedObject.transform.position = Vector3.MoveTowards(grabbedObject.transform.position, transform.position, pullForce * Time.deltaTime);
-
-            if (Vector3.Distance(grabbedObject.transform.position, transform.position) < 0.1f)
-            {
-                ReleaseObject();
-            }
-        }
-        
-        
-
-        public void PullBox(Collider2D other)
-        {
-            grabbedObject = other.gameObject;
-            isExtending = false;
-        isPulling = true;
-        }
-
-        void ResetArm()
+        public void ResetArm()
         {
             arm.localPosition = originalArmPosition;
             isExtending = false;
-        BRACO.enabled = false;
-
-            isPulling = false;
-            if (grabbedObject != null)
-        {
-            grabbedObject.transform.parent = null;
+            BRACO.enabled = false;
         }
-            grabbedObject = null;
-        }
-
-        void ReleaseObject()
-        {
-            if (grabbedObject != null)
-        {
-            grabbedObject.transform.parent = null;
-            grabbedObject = null;
-        }
-            ResetArm();
-        }
-
 }

@@ -49,14 +49,13 @@ public class PlayerController : MonoBehaviour
    
     GameObject boxHolded;
     public bool puxouCaixa;
-    [SerializeField] Vector2 point;
     bool holding;
     public GameObject local;
     [SerializeField] float radius;
     [SerializeField] LayerMask layerMask;
     bool isRunning = false;
 
-
+    public bool Holding { get => holding;}
 
     private void Awake()
     {
@@ -93,6 +92,15 @@ public class PlayerController : MonoBehaviour
         {
             // Atualize a velocidade do rigidbody com base na direção e na velocidade
             rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
+
+            if(direction.x < 0)
+            {
+                transform.localScale = new Vector3(-1,1,1);
+            }
+            else if(direction.x > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
 
             // Verifique se o personagem está correndo (movimento horizontal diferente de zero)
             isRunning = Mathf.Abs(rb.velocity.x) > 0.1f;
@@ -210,6 +218,7 @@ public class PlayerController : MonoBehaviour
             boxHolded.transform.parent = null;
             boxHolded.GetComponent<BoxCollider2D>().isTrigger = false;
             boxHolded.GetComponent<Rigidbody2D>().isKinematic = false;
+            boxHolded.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             boxHolded = null;
             return;
         }
@@ -222,11 +231,16 @@ public class PlayerController : MonoBehaviour
 
             if (hitColliders.GetComponent<Rigidbody2D>())
             {
+                Rigidbody2D boxRigidbody = hitColliders.GetComponent<Rigidbody2D>();
+
                 boxHolded = hitColliders.gameObject;
                 boxHolded.GetComponent<BoxCollider2D>().isTrigger = true;
-                boxHolded.GetComponent<Rigidbody2D>().isKinematic = true;
-                boxHolded.transform.position = transform.position + new Vector3(-1, 0, 0);
+                boxRigidbody.isKinematic = true;
                 boxHolded.transform.parent = transform;
+                boxHolded.transform.localPosition = new Vector3(transform.localScale.x, 1.5f, 0) ;
+                boxHolded.transform.rotation = Quaternion.Euler(Vector3.zero);
+                boxRigidbody.velocity = Vector2.zero;
+                boxRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
                 holding = true;
             }
         }

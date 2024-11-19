@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050923486645622525}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.857, y: 1.438, z: 0}
   m_LocalScale: {x: 0.83669996, y: 0.1994991, z: 1}
   m_ConstrainProportionsScale: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   radius: 1
   layerMask:
     serializedVersion: 2
-    m_Bits: 18
+    m_Bits: 8
 --- !u!1 &5298251184873745994
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,12 +466,11 @@ MonoBehaviour:
   stretchDistance: 3
   stretchDuration: 2
   puxouCaixa: 0
-  point: {x: 0, y: 0}
   local: {fileID: 0}
-  radius: 0
+  radius: 2
   layerMask:
     serializedVersion: 2
-    m_Bits: 82
+    m_Bits: 8
 --- !u!114 &3227163486639343036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,7 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundMask:
     serializedVersion: 2
-    m_Bits: 82
+    m_Bits: 86
   radius: 0.56
   offset: {x: 0, y: 0, z: 0}
 --- !u!114 &5050890174664109451

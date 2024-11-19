@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 469644784699916857}
   - component: {fileID: 5102492198426653676}
   - component: {fileID: 7985372638935490418}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Caixa
   m_TagString: Caixa
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 8d15332c007959e46a3f99c6322b7d2c, type: 2}
+  m_Material: {fileID: 6200000, guid: 4548de3934813c3458f93c91bfb3ff96, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
