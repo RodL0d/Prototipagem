@@ -1487,8 +1487,8 @@ MonoBehaviour:
   initialPosition: {fileID: 0}
   playerController: {fileID: 0}
   SuperPulo: 0
-  puxarCaixa: 0
-  "EsticarBra\xE7o": 0
+  puxarCaixa: 1
+  "esticarBra\xE7o": 1
   olhoBionico: 0
   OuvidoBionico: 0
 --- !u!4 &824431900
