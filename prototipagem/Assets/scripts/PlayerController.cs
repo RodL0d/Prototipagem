@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer render;
     Rigidbody2D rb;
     PlayerCollider playerCollider;
+    ArmMechanic armMechanic;
     Animator animator;
     float contSuperJump;
     Inputs inputs;
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour
         render = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<PlayerCollider>();
+        armMechanic = GetComponent<ArmMechanic>();
         animator = GetComponent<Animator>();
         hud = GetComponent<HUD>();
         inputs = new Inputs();
@@ -72,7 +74,8 @@ public class PlayerController : MonoBehaviour
         inputs.Player.Andar.performed += ctx => direction = ctx.ReadValue<Vector2>();
         inputs.Player.SuperPulo.started += ctx => superJumpAcert = true;
         inputs.Player.SuperPulo.canceled += ctx => superJumpAcert = false;
-        inputs.Player.puxar.performed += ctx => PickBox(null);
+        inputs.Player.Puxar.performed += ctx => PickBox(null);
+        inputs.Player.EsticarBraço.performed += ctx => armMechanic.SetArmDirection();
 
         
     }

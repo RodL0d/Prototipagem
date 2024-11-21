@@ -32,13 +32,6 @@ public class ArmMechanic : MonoBehaviour
         void Update()
         {
         isFacingRight = transform.localScale.x > 0;
-            if (Input.GetKeyDown(KeyCode.J) && !isExtending && GameManager.instance.esticarBraço )
-            {
-                SetArmDirection();
-                isExtending = true;
-                BRACO.enabled = true;
-            
-            }
 
             if (isExtending)
             {
@@ -46,10 +39,15 @@ public class ArmMechanic : MonoBehaviour
             }
          }
 
-        void SetArmDirection()
+        public void SetArmDirection()
         {
+            if (!isExtending && GameManager.instance.esticarBraço)
+            {
             armDirection = isFacingRight ? Vector3.right : Vector3.left;
             arm.localPosition = originalArmPosition; // Reseta a posição do braço antes de estender
+            isExtending = true;
+            BRACO.enabled = true;
+            }
         }
 
          void ExtendArm()
