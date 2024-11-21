@@ -437,7 +437,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 8d15332c007959e46a3f99c6322b7d2c, type: 2}
+  m_Material: {fileID: 6200000, guid: 996d37630362985468524c9e34097185, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -466,6 +466,7 @@ MonoBehaviour:
   stretchDistance: 3
   stretchDuration: 2
   puxouCaixa: 0
+  point: {x: 0, y: 0}
   local: {fileID: 0}
   radius: 2
   layerMask:

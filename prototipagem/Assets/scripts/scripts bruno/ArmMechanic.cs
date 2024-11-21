@@ -35,7 +35,7 @@ public class ArmMechanic : MonoBehaviour
         void Update()
         {
         isFacingRight = transform.localScale.x > 0;
-            if (Input.GetKeyDown(KeyCode.J) && !isExtending && GameManager.instance.esticarBraço && !playerController.Holding)
+            if (Input.GetKeyDown(KeyCode.J) && !isExtending && GameManager.instance.esticarBraço )
             {
                 SetArmDirection();
                 isExtending = true;
