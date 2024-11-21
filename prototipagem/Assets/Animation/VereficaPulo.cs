@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VerificaPulo : MonoBehaviour
+public class VereficaPulo : MonoBehaviour
 {
    [SerializeField] LayerMask mask;
     public bool estaNoChao;

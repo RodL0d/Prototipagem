@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class ArmMechanic : MonoBehaviour
 {
         public Transform arm;           // Referência ao objeto braço
@@ -17,7 +16,6 @@ public class ArmMechanic : MonoBehaviour
         private Vector3 originalArmPosition;
         private Vector3 armDirection;
        public  bool OnBraco;
-       Animator animator;
       [SerializeField]public SpriteRenderer BRACO;
 
     PlayerController playerController;
@@ -29,7 +27,6 @@ public class ArmMechanic : MonoBehaviour
             gameManager = GetComponent<GameManager>();
             originalArmPosition = arm.localPosition;
         ResetArm();
-        animator = GetComponent<Animator>();
     }
 
         void Update()
@@ -40,9 +37,8 @@ public class ArmMechanic : MonoBehaviour
                 SetArmDirection();
                 isExtending = true;
                 BRACO.enabled = true;
-            animator.SetBool("Braço", true);
-
-        }
+            
+            }
 
             if (isExtending)
             {
@@ -54,8 +50,7 @@ public class ArmMechanic : MonoBehaviour
         {
             armDirection = isFacingRight ? Vector3.right : Vector3.left;
             arm.localPosition = originalArmPosition; // Reseta a posição do braço antes de estender
-            animator.SetBool("Braço", false);
-    }
+        }
 
          void ExtendArm()
         {
