@@ -98,11 +98,11 @@ public class PlayerController : MonoBehaviour
 
             if(direction.x < 0)
             {
-                transform.localScale = new Vector3(-1,1,1);
+                transform.localScale = new Vector3(-3,3,3);
             }
             else if(direction.x > 0)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(3, 3, 3);
             }
 
             // Verifique se o personagem está correndo (movimento horizontal diferente de zero)
