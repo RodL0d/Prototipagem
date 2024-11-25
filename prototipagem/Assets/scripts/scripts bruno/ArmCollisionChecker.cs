@@ -27,5 +27,9 @@ public class ArmCollisionChecker : MonoBehaviour
         }
     }
 
-    
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
 }

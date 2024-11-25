@@ -41,13 +41,12 @@ public class ArmMechanic : MonoBehaviour
 
         public void SetArmDirection()
         {
-            if (!isExtending && GameManager.instance.esticarBraço)
-            {
+            
             armDirection = isFacingRight ? Vector3.right : Vector3.left;
             arm.localPosition = originalArmPosition; // Reseta a posição do braço antes de estender
             isExtending = true;
             BRACO.enabled = true;
-            }
+            
         }
 
          void ExtendArm()

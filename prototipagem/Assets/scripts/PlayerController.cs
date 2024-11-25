@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     const float jumpForce = 10;
     const float dashForce = 10;
 
-    VereficaPulo vereficaPulo;
+    VerificaPulo vereficaPulo;
 
     bool jumping, dashing, agachar;
     Vector2 direction;
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        vereficaPulo = GetComponentInChildren<VereficaPulo>();
+        vereficaPulo = GetComponentInChildren<VerificaPulo>();
         render = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<PlayerCollider>();
@@ -75,17 +75,32 @@ public class PlayerController : MonoBehaviour
         inputs.Player.SuperPulo.started += ctx => superJumpAcert = true;
         inputs.Player.SuperPulo.canceled += ctx => superJumpAcert = false;
         inputs.Player.Puxar.performed += ctx => PickBox(null);
-        inputs.Player.EsticarBraço.performed += ctx => armMechanic.SetArmDirection();
+        inputs.Player.EsticarBraço.performed += ctx => Arm();
 
         
+    }
+
+    void Arm()
+    {
+        if (!armMechanic.isExtending && GameManager.instance.esticarBraço)
+        {
+            animator.SetTrigger("Braco");
+        }
     }
     private void Update()
     {
         SetGravity();
         Movement();
         SuperJump();
-        Passarfase();
-        RetrocederFase();
+        //Passarfase();
+        //RetrocederFase();
+
+        if (playerCollider.OnGround && rb.velocity.y <= 0)
+        {
+            animator.SetBool("Jump", false);
+            animator.SetBool("SuperJump", false);
+        }
+
     }
 
     private void Movement()
@@ -123,13 +138,23 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity += Vector2.up * Physics2D.gravity * lowJumpMultiplier * Time.deltaTime;
         }
+
+        if(rb.velocity.y < 0 && !playerCollider.OnGround)
+        {
+            animator.SetBool("Falling", true);
+        }
+        else
+        {
+            animator.SetBool("Falling", false);
+        }
     }
     private void Jump()
 
     {
-        if (playerCollider.OnGround & vereficaPulo.estaNoChao)
+        if (playerCollider.OnGround)
         {
             jumping = true;
+            animator.SetBool("Jump", true);
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -145,7 +170,7 @@ public class PlayerController : MonoBehaviour
     {            
             if (superJumpAcert && GameManager.instance.SuperPulo && playerCollider.OnGround)
             {
-
+            animator.SetBool("StartSuperJump", true);
             contSuperJump += Time.deltaTime;
             hud.UpdateSuperPuloBar(contSuperJump, limiteSuperPulo);
             printContSuperJump++;
@@ -156,6 +181,7 @@ public class PlayerController : MonoBehaviour
 
                     float newJumpForce;
                     newJumpForce = jumpForce + 2;
+                    animator.SetBool("SuperJump", true);
 
                     jumping = true;
                     rb.constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -172,7 +198,7 @@ public class PlayerController : MonoBehaviour
         {
             contSuperJump = 0;
             printContSuperJump = 0;
-
+            animator.SetBool("StartSuperJump", false);
             // Atualiza a barra de progresso na HUD para refletir o reset
             hud.UpdateSuperPuloBar(contSuperJump, limiteSuperPulo);
 
