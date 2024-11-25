@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer render;
     Rigidbody2D rb;
     PlayerCollider playerCollider;
+    ArmMechanic armMechanic;
     Animator animator;
     float contSuperJump;
     Inputs inputs;
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour
         render = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<PlayerCollider>();
+        armMechanic = GetComponent<ArmMechanic>();
         animator = GetComponent<Animator>();
         hud = GetComponent<HUD>();
         inputs = new Inputs();
@@ -72,7 +74,8 @@ public class PlayerController : MonoBehaviour
         inputs.Player.Andar.performed += ctx => direction = ctx.ReadValue<Vector2>();
         inputs.Player.SuperPulo.started += ctx => superJumpAcert = true;
         inputs.Player.SuperPulo.canceled += ctx => superJumpAcert = false;
-        inputs.Player.puxar.performed += ctx => PickBox(null);
+        inputs.Player.Puxar.performed += ctx => PickBox(null);
+        inputs.Player.EsticarBraço.performed += ctx => armMechanic.SetArmDirection();
 
         
     }
@@ -95,11 +98,11 @@ public class PlayerController : MonoBehaviour
 
             if(direction.x < 0)
             {
-                transform.localScale = new Vector3(-1,1,1);
+                transform.localScale = new Vector3(-3,3,3);
             }
             else if(direction.x > 0)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(3, 3, 3);
             }
 
             // Verifique se o personagem está correndo (movimento horizontal diferente de zero)
@@ -140,7 +143,7 @@ public class PlayerController : MonoBehaviour
     
       private void SuperJump()
     {            
-            if (superJumpAcert && GameManager.instance.SuperPulo)
+            if (superJumpAcert && GameManager.instance.SuperPulo && playerCollider.OnGround)
             {
 
             contSuperJump += Time.deltaTime;
@@ -177,27 +180,6 @@ public class PlayerController : MonoBehaviour
         }
 
 
-    }
-
-    private IEnumerator Dash()
-    {
-        if (!dashing)
-        {
-            animator.SetTrigger("Dashing");
-            dashing = true;
-            rb.velocity = new Vector2(dashForce * direction.x, 0);
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionY;
-
-            yield return new WaitForSeconds(0.8f);
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            dashing = false;
-        }
-    }
-
-
-    private void Shoot()
-    {
-        Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
     }
 
     private void OnEnable()
@@ -237,7 +219,8 @@ public class PlayerController : MonoBehaviour
                 boxHolded.GetComponent<BoxCollider2D>().isTrigger = true;
                 boxRigidbody.isKinematic = true;
                 boxHolded.transform.parent = transform;
-                boxHolded.transform.localPosition = new Vector3(transform.localScale.x, 1.5f, 0) ;
+                Vector3 boxPosition = new Vector3(0.3f, 0.5f, 0);
+                boxHolded.transform.localPosition = boxPosition;
                 boxHolded.transform.rotation = Quaternion.Euler(Vector3.zero);
                 boxRigidbody.velocity = Vector2.zero;
                 boxRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
