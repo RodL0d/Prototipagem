@@ -6,11 +6,34 @@ public class BarreiraController : MonoBehaviour
 {
     public float velocidade;
     [SerializeField]
-    Botao botao;
-    bool daniel;
+    Botao[] botoes;
+    [SerializeField] bool all;
     Vector2 posicaoInicial;
     [SerializeField] int maxposicao = 5;
     
+
+    bool CheckBotoes()
+    {
+        foreach (Botao botao in botoes)
+        {
+            if (all)
+            {
+                if (!botao.pisou)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (botao.pisou)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return all;
+    }
     
     void Start()
     {
@@ -21,20 +44,15 @@ public class BarreiraController : MonoBehaviour
     void Update()
     {
 
-
-
-
-        if (botao.pisou == true && transform.position.y <= maxposicao + posicaoInicial.y)
+        if (CheckBotoes() && transform.position.y <= maxposicao + posicaoInicial.y)
         {
             transform.Translate(Vector2.up * Time.deltaTime * velocidade);
 
-            daniel = true;
         }
 
-        if (botao.pisou == false && daniel == true && transform.position.y >= posicaoInicial.y )
+        if (!CheckBotoes() && transform.position.y >= posicaoInicial.y )
         {
             transform.Translate(Vector2.down * Time.deltaTime * velocidade);
-            //transform.localPosition = new Vector2(8, 3);
         }
 
     }

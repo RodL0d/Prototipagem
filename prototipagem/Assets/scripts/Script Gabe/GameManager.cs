@@ -85,20 +85,20 @@ public class GameManager : MonoBehaviour
     }
     void FindBoolPower()
     {
-        if (SceneManager.GetActiveScene().name == "PréFase") // fase
+        if (SceneManager.GetActiveScene().name == "1-0") // fase
         {
             puxarCaixa = true;
     
         }
-        if(SceneManager.GetActiveScene().name == "Pre-Fase")
+        if(SceneManager.GetActiveScene().name == "2-0")
         {
             SuperPulo = true;
         }
-        if(SceneManager.GetActiveScene().name == "Pre fase3")
+        if(SceneManager.GetActiveScene().name == "3-0")
         {
             esticarBraço = true;
         }
-        if(SceneManager.GetActiveScene().name == "pre fase 4")
+        if(SceneManager.GetActiveScene().name == "4-0")
         {
             olhoBionico = true;
         }

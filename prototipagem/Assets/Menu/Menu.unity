@@ -1487,8 +1487,8 @@ MonoBehaviour:
   initialPosition: {fileID: 0}
   playerController: {fileID: 0}
   SuperPulo: 0
-  puxarCaixa: 1
-  "esticarBra\xE7o": 1
+  puxarCaixa: 0
+  "esticarBra\xE7o": 0
   olhoBionico: 0
   OuvidoBionico: 0
 --- !u!4 &824431900
@@ -2418,7 +2418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c499b7bb977294290709195dc69860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomeDaFase: "Pr\xE9Fase"
+  nomeDaFase: 1-0
   painelMenuInicial: {fileID: 274601302}
   painelOpcao: {fileID: 105258202}
 --- !u!4 &1532144687

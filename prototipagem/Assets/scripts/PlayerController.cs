@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
     
       private void SuperJump()
     {            
-            if (superJumpAcert && GameManager.instance.SuperPulo)
+            if (superJumpAcert && GameManager.instance.SuperPulo && playerCollider.OnGround)
             {
 
             contSuperJump += Time.deltaTime;
@@ -180,27 +180,6 @@ public class PlayerController : MonoBehaviour
         }
 
 
-    }
-
-    private IEnumerator Dash()
-    {
-        if (!dashing)
-        {
-            animator.SetTrigger("Dashing");
-            dashing = true;
-            rb.velocity = new Vector2(dashForce * direction.x, 0);
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionY;
-
-            yield return new WaitForSeconds(0.8f);
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            dashing = false;
-        }
-    }
-
-
-    private void Shoot()
-    {
-        Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
     }
 
     private void OnEnable()
@@ -240,7 +219,8 @@ public class PlayerController : MonoBehaviour
                 boxHolded.GetComponent<BoxCollider2D>().isTrigger = true;
                 boxRigidbody.isKinematic = true;
                 boxHolded.transform.parent = transform;
-                boxHolded.transform.localPosition = new Vector3(transform.localScale.x, 1.5f, 0) ;
+                Vector3 boxPosition = new Vector3(0.3f, 0.5f, 0);
+                boxHolded.transform.localPosition = boxPosition;
                 boxHolded.transform.rotation = Quaternion.Euler(Vector3.zero);
                 boxRigidbody.velocity = Vector2.zero;
                 boxRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
