@@ -1,0 +1,426 @@
+fileFormatVersion: 2
+guid: ffe6848de9d4f3647a7ea452f76bb5ef
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 320
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: superpulo_1_0
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 347
+        height: 924
+      alignment: 9
+      pivot: {x: 0.595285, y: 0.012212371}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06e3b72b2d998f7468ed2f3ca6e9e2e1
+      internalID: 12012278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: superpulo_1_1
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 0
+        width: 311
+        height: 924
+      alignment: 9
+      pivot: {x: 0.5559545, y: 0.01597907}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 951906aeb090427419aab745cb166b40
+      internalID: 1866967239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: superpulo_1_2
+      rect:
+        serializedVersion: 2
+        x: 2196
+        y: 2
+        width: 353
+        height: 924
+      alignment: 9
+      pivot: {x: 0.5098583, y: 0.0084456885}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba0a2a34e4026a14dbc2cf9cb7203d2c
+      internalID: -338149397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: superpulo_1_3
+      rect:
+        serializedVersion: 2
+        x: 3132
+        y: 0
+        width: 433
+        height: 887
+      alignment: 9
+      pivot: {x: 0.51205593, y: 0.009522193}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be0d8a395aca89447a851b865f34d976
+      internalID: 750879700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: superpulo_1_4
+      rect:
+        serializedVersion: 2
+        x: 4095
+        y: 0
+        width: 433
+        height: 784
+      alignment: 9
+      pivot: {x: 0.5080369, y: 0.005015405}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 437883a9eef0d3e41a4a3698d01a74ae
+      internalID: -1883098486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: superpulo_1_5
+      rect:
+        serializedVersion: 2
+        x: 5033
+        y: 0
+        width: 470
+        height: 747
+      alignment: 9
+      pivot: {x: 0.5148095, y: -0.0031946437}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 091f7814816648c439de4df9e0c8971a
+      internalID: -1322239119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: superpulo_1_6
+      rect:
+        serializedVersion: 2
+        x: 6015
+        y: 0
+        width: 432
+        height: 784
+      alignment: 9
+      pivot: {x: 0.52014047, y: 0.0072350674}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa78b5535e6a2c4ba82034884ddb6e5
+      internalID: -825725919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: superpulo_1_7
+      rect:
+        serializedVersion: 2
+        x: 6977
+        y: 0
+        width: 427
+        height: 845
+      alignment: 9
+      pivot: {x: 0.48777238, y: 0.013975441}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14d89fab147d1f14194432544e5b2776
+      internalID: -331446195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: superpulo_1_9
+      rect:
+        serializedVersion: 2
+        x: 7912
+        y: 0
+        width: 496
+        height: 924
+      alignment: 9
+      pivot: {x: 0.48596486, y: 0.01786242}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e74662e251e3b21439794425ef057e3d
+      internalID: 1906781962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: superpulo_1_11
+      rect:
+        serializedVersion: 2
+        x: 8784
+        y: 0
+        width: 593
+        height: 924
+      alignment: 9
+      pivot: {x: 0.5469524, y: 0.008445672}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e303260b6b5fea04295e837a70a9c73d
+      internalID: 262772701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: superpulo_1_13
+      rect:
+        serializedVersion: 2
+        x: 9896
+        y: 55
+        width: 329
+        height: 893
+      alignment: 9
+      pivot: {x: 0.49999702, y: 0.0050227772}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa483db2cb6051d4da68601ff6fa4356
+      internalID: 2095784128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: superpulo_1_14
+      rect:
+        serializedVersion: 2
+        x: 10877
+        y: 12
+        width: 311
+        height: 893
+      alignment: 9
+      pivot: {x: 0.45544866, y: 0.0074169785}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a05262153b42e649b9389f7019bf5f6
+      internalID: 354229959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: superpulo_1_15
+      rect:
+        serializedVersion: 2
+        x: 11816
+        y: 55
+        width: 329
+        height: 893
+      alignment: 9
+      pivot: {x: 0.4947343, y: 0.009356209}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d6992e43efeca41a1374d4a32c9e5a
+      internalID: -239407722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      superpulo_1_0: 12012278
+      superpulo_1_1: 1866967239
+      superpulo_1_10: 1464600584
+      superpulo_1_11: 262772701
+      superpulo_1_12: 1470259972
+      superpulo_1_13: 2095784128
+      superpulo_1_14: 354229959
+      superpulo_1_15: -239407722
+      superpulo_1_16: -1893454004
+      superpulo_1_17: -1741213956
+      superpulo_1_18: 1082065548
+      superpulo_1_19: -1847243735
+      superpulo_1_2: -338149397
+      superpulo_1_20: -624051917
+      superpulo_1_21: 505145183
+      superpulo_1_22: -1388918568
+      superpulo_1_23: -931641696
+      superpulo_1_24: -1198886636
+      superpulo_1_25: -112020769
+      superpulo_1_3: 750879700
+      superpulo_1_4: -1883098486
+      superpulo_1_5: -1322239119
+      superpulo_1_6: -825725919
+      superpulo_1_7: -331446195
+      superpulo_1_8: -1378057940
+      superpulo_1_9: 1906781962
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
