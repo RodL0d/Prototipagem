@@ -46,45 +46,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Empurrar"",
-                    ""type"": ""Button"",
-                    ""id"": ""ba7c1749-f94a-4dc1-a1a0-c300c651fbbe"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Agachar"",
-                    ""type"": ""Button"",
-                    ""id"": ""801770fe-73e8-4d88-b825-463691ffe414"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""puxar"",
-                    ""type"": ""Button"",
-                    ""id"": ""c76eaa09-962e-41fa-9c1d-1948ada2e114"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""SuperPulo"",
                     ""type"": ""Button"",
                     ""id"": ""cdaf935e-766f-4a29-ba40-8f4fda8f8714"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""braço"",
-                    ""type"": ""Button"",
-                    ""id"": ""ef90adb7-4e95-4bfb-9c1c-925b4a874a04"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -141,28 +105,39 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""58cdafaa-3777-4dee-90d6-c60fa70aec7d"",
-                    ""path"": """",
+                    ""id"": ""fb3cb9be-19e2-4ede-a807-a29954da309c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Empurrar"",
+                    ""action"": ""Pular"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a729f2eb-d9b1-42d2-9962-c9ecd1493e87"",
-                    ""path"": """",
+                    ""id"": ""e5213c78-7f7b-428d-89a8-e45d9737c389"",
+                    ""path"": ""<DualShockGamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Agachar"",
+                    ""action"": ""Pular"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""2D Vector"",
+                    ""name"": """",
+                    ""id"": ""a78e412f-5406-4464-ac8c-7c61e4085dd4"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pular"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""AWSD"",
                     ""id"": ""cd214fe6-6d0a-4782-aa83-5821fcf5fc5a"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -171,28 +146,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""action"": ""Andar"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""a2962a19-35af-456c-88d2-f6884f914728"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Andar"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""f56d1ba9-d7f9-470d-b493-14dae41993d5"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Andar"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""left"",
@@ -217,15 +170,136 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""e558831a-ac4e-45e5-81ca-6e0c30b1782d"",
-                    ""path"": ""<Keyboard>/l"",
+                    ""name"": ""Dpad"",
+                    ""id"": ""e6021f9c-f1b5-4477-a5fc-cc5bf3655073"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""puxar"",
-                    ""isComposite"": false,
+                    ""action"": ""Andar"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""d295f28b-b432-43bf-8215-414a406a4026"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Andar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""3177aea4-df01-4aec-8bb3-2ec423d0ccdc"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Andar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Analogic"",
+                    ""id"": ""67146273-39bf-425c-8fe8-8ec00346cce0"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Andar"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""d7a475f9-529f-4c8d-a56c-a8aa8b50f42c"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Andar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""ebf79bf9-2794-49a1-a078-7220fa66148e"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Andar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""D-Pad"",
+                    ""id"": ""58185a00-9807-41ba-92c9-71db7bdac7bc"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Andar"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""35779cb5-ed4a-4f06-a745-9af159104c88"",
+                    ""path"": ""<DualShockGamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Andar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""d100a977-379e-47ee-bc53-8cab20924ac4"",
+                    ""path"": ""<DualShockGamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Andar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Analogic PS"",
+                    ""id"": ""9579f129-e380-482a-83e4-67ea562aaedb"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Andar"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""3ffc62a1-0c1c-4ab2-995d-b79a97376e05"",
+                    ""path"": ""<DualShockGamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Andar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""bee4a1e3-7d49-4863-a13e-3041eec0a043"",
+                    ""path"": ""<DualShockGamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Andar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -240,12 +314,45 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""68479b30-3985-4a7d-bca8-3445c3901e13"",
-                    ""path"": """",
+                    ""id"": ""ce55b3b6-22cc-4e01-b552-5bee15456d22"",
+                    ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""braço"",
+                    ""action"": ""SuperPulo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cc7efd20-577d-48f2-9c30-725e1971547b"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SuperPulo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4ac32a55-192d-4667-971e-a087c51a092d"",
+                    ""path"": ""<DualShockGamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SuperPulo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6e2cc3dd-4d8e-4e7f-a4e0-ceb3228b67d9"",
+                    ""path"": ""<DualShockGamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SuperPulo"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -262,8 +369,52 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""2cdf3943-a53b-4039-b177-0c1f268c4253"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Puxar "",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f968712-e379-43b7-8f4b-04afbe65f7c3"",
+                    ""path"": ""<DualShockGamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Puxar "",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""3ea2f7a2-108e-4137-b733-b9ca842cfc1b"",
                     ""path"": ""<Keyboard>/#(J)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Esticar Braço"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce9c9b8a-6299-4bb3-acca-7fc2d7ff84ca"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Esticar Braço"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d7bccff1-71cc-45f2-8798-3cb97de3ed72"",
+                    ""path"": ""<DualShockGamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -302,11 +453,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Pular = m_Player.FindAction("Pular", throwIfNotFound: true);
         m_Player_Andar = m_Player.FindAction("Andar", throwIfNotFound: true);
-        m_Player_Empurrar = m_Player.FindAction("Empurrar", throwIfNotFound: true);
-        m_Player_Agachar = m_Player.FindAction("Agachar", throwIfNotFound: true);
-        m_Player_puxar = m_Player.FindAction("puxar", throwIfNotFound: true);
         m_Player_SuperPulo = m_Player.FindAction("SuperPulo", throwIfNotFound: true);
-        m_Player_braço = m_Player.FindAction("braço", throwIfNotFound: true);
         m_Player_Puxar = m_Player.FindAction("Puxar ", throwIfNotFound: true);
         m_Player_EsticarBraço = m_Player.FindAction("Esticar Braço", throwIfNotFound: true);
         m_Player_passarfase = m_Player.FindAction("passarfase", throwIfNotFound: true);
@@ -374,11 +521,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Pular;
     private readonly InputAction m_Player_Andar;
-    private readonly InputAction m_Player_Empurrar;
-    private readonly InputAction m_Player_Agachar;
-    private readonly InputAction m_Player_puxar;
     private readonly InputAction m_Player_SuperPulo;
-    private readonly InputAction m_Player_braço;
     private readonly InputAction m_Player_Puxar;
     private readonly InputAction m_Player_EsticarBraço;
     private readonly InputAction m_Player_passarfase;
@@ -389,11 +532,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         public PlayerActions(@Inputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Pular => m_Wrapper.m_Player_Pular;
         public InputAction @Andar => m_Wrapper.m_Player_Andar;
-        public InputAction @Empurrar => m_Wrapper.m_Player_Empurrar;
-        public InputAction @Agachar => m_Wrapper.m_Player_Agachar;
-        public InputAction @puxar => m_Wrapper.m_Player_puxar;
         public InputAction @SuperPulo => m_Wrapper.m_Player_SuperPulo;
-        public InputAction @braço => m_Wrapper.m_Player_braço;
         public InputAction @Puxar => m_Wrapper.m_Player_Puxar;
         public InputAction @EsticarBraço => m_Wrapper.m_Player_EsticarBraço;
         public InputAction @passarfase => m_Wrapper.m_Player_passarfase;
@@ -413,21 +552,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Andar.started += instance.OnAndar;
             @Andar.performed += instance.OnAndar;
             @Andar.canceled += instance.OnAndar;
-            @Empurrar.started += instance.OnEmpurrar;
-            @Empurrar.performed += instance.OnEmpurrar;
-            @Empurrar.canceled += instance.OnEmpurrar;
-            @Agachar.started += instance.OnAgachar;
-            @Agachar.performed += instance.OnAgachar;
-            @Agachar.canceled += instance.OnAgachar;
-            @puxar.started += instance.OnPuxar;
-            @puxar.performed += instance.OnPuxar;
-            @puxar.canceled += instance.OnPuxar;
             @SuperPulo.started += instance.OnSuperPulo;
             @SuperPulo.performed += instance.OnSuperPulo;
             @SuperPulo.canceled += instance.OnSuperPulo;
-            @braço.started += instance.OnBraço;
-            @braço.performed += instance.OnBraço;
-            @braço.canceled += instance.OnBraço;
             @Puxar.started += instance.OnPuxar;
             @Puxar.performed += instance.OnPuxar;
             @Puxar.canceled += instance.OnPuxar;
@@ -450,21 +577,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @Andar.started -= instance.OnAndar;
             @Andar.performed -= instance.OnAndar;
             @Andar.canceled -= instance.OnAndar;
-            @Empurrar.started -= instance.OnEmpurrar;
-            @Empurrar.performed -= instance.OnEmpurrar;
-            @Empurrar.canceled -= instance.OnEmpurrar;
-            @Agachar.started -= instance.OnAgachar;
-            @Agachar.performed -= instance.OnAgachar;
-            @Agachar.canceled -= instance.OnAgachar;
-            @puxar.started -= instance.OnPuxar;
-            @puxar.performed -= instance.OnPuxar;
-            @puxar.canceled -= instance.OnPuxar;
             @SuperPulo.started -= instance.OnSuperPulo;
             @SuperPulo.performed -= instance.OnSuperPulo;
             @SuperPulo.canceled -= instance.OnSuperPulo;
-            @braço.started -= instance.OnBraço;
-            @braço.performed -= instance.OnBraço;
-            @braço.canceled -= instance.OnBraço;
             @Puxar.started -= instance.OnPuxar;
             @Puxar.performed -= instance.OnPuxar;
             @Puxar.canceled -= instance.OnPuxar;
@@ -498,12 +613,8 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     {
         void OnPular(InputAction.CallbackContext context);
         void OnAndar(InputAction.CallbackContext context);
-        void OnEmpurrar(InputAction.CallbackContext context);
-        void OnAgachar(InputAction.CallbackContext context);
-        void OnPuxar(InputAction.CallbackContext context);
         void OnSuperPulo(InputAction.CallbackContext context);
-        void OnBraço(InputAction.CallbackContext context);
-        
+        void OnPuxar(InputAction.CallbackContext context);
         void OnEsticarBraço(InputAction.CallbackContext context);
         void OnPassarfase(InputAction.CallbackContext context);
         void OnRetrocederfase(InputAction.CallbackContext context);
