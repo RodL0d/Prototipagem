@@ -11,16 +11,19 @@ public class ArmCollisionChecker : MonoBehaviour
     {
         armMechanic = GetComponentInParent<ArmMechanic>();
         playerController = GetComponentInParent<PlayerController>();
-        layerMask = LayerMask.GetMask("TransparentFX", "Water");
+        layerMask = LayerMask.GetMask("Caixa");
     }
 
     private void Update()
     {
-
-        Collider2D hitColliders = Physics2D.OverlapCircle(transform.position, radius, layerMask);
-        if (armMechanic.isExtending && hitColliders != null)
+        if (armMechanic.isExtending)
         {
-            playerController.PickBox(hitColliders);
+            Collider2D hitColliders = Physics2D.OverlapCircle(transform.position, radius, layerMask);
+            if (hitColliders != null)
+            {
+                playerController.PickBox(hitColliders);
+                armMechanic.ResetArm();
+            }
         }
     }
 

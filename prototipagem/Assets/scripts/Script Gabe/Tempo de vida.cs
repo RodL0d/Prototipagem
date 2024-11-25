@@ -37,6 +37,8 @@ public class Tempodevida : MonoBehaviour
     }
     void reloadScenes()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }
