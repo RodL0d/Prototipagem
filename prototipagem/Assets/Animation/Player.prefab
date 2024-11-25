@@ -471,7 +471,7 @@ MonoBehaviour:
   radius: 2
   layerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
 --- !u!114 &3227163486639343036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,7 +595,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5718655, y: -0.0012211349}
-    oldSize: {x: 1.1433333, y: 3.0699997}
+    oldSize: {x: 1.071875, y: 2.878125}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
