@@ -89,6 +89,15 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""c72faefc-c920-45fb-b467-5c846639524f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -443,6 +452,28 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
                     ""action"": ""retrocederfase"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8a597a3b-ffbc-4ecf-92e1-10f2b81c8590"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c23c17b2-4e13-4237-8ef8-21926599dc03"",
+                    ""path"": ""<DualShockGamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -458,6 +489,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         m_Player_EsticarBraço = m_Player.FindAction("Esticar Braço", throwIfNotFound: true);
         m_Player_passarfase = m_Player.FindAction("passarfase", throwIfNotFound: true);
         m_Player_retrocederfase = m_Player.FindAction("retrocederfase", throwIfNotFound: true);
+        m_Player_Restart = m_Player.FindAction("Restart", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -526,6 +558,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_EsticarBraço;
     private readonly InputAction m_Player_passarfase;
     private readonly InputAction m_Player_retrocederfase;
+    private readonly InputAction m_Player_Restart;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
@@ -537,6 +570,7 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         public InputAction @EsticarBraço => m_Wrapper.m_Player_EsticarBraço;
         public InputAction @passarfase => m_Wrapper.m_Player_passarfase;
         public InputAction @retrocederfase => m_Wrapper.m_Player_retrocederfase;
+        public InputAction @Restart => m_Wrapper.m_Player_Restart;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -567,6 +601,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @retrocederfase.started += instance.OnRetrocederfase;
             @retrocederfase.performed += instance.OnRetrocederfase;
             @retrocederfase.canceled += instance.OnRetrocederfase;
+            @Restart.started += instance.OnRestart;
+            @Restart.performed += instance.OnRestart;
+            @Restart.canceled += instance.OnRestart;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -592,6 +629,9 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
             @retrocederfase.started -= instance.OnRetrocederfase;
             @retrocederfase.performed -= instance.OnRetrocederfase;
             @retrocederfase.canceled -= instance.OnRetrocederfase;
+            @Restart.started -= instance.OnRestart;
+            @Restart.performed -= instance.OnRestart;
+            @Restart.canceled -= instance.OnRestart;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -618,5 +658,6 @@ public partial class @Inputs: IInputActionCollection2, IDisposable
         void OnEsticarBraço(InputAction.CallbackContext context);
         void OnPassarfase(InputAction.CallbackContext context);
         void OnRetrocederfase(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
     }
 }

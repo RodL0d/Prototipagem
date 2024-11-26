@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour
         inputs.Player.SuperPulo.canceled += ctx => superJumpAcert = false;
         inputs.Player.Puxar.performed += ctx => PickBox(null);
         inputs.Player.EsticarBraço.performed += ctx => Arm();
+        inputs.Player.Restart.performed += ctx => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         
     }
